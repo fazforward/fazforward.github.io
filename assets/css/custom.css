@@ -1,0 +1,45 @@
+/* Override background */
+#bg {
+    background-image: none !important;
+    background-color: white !important;
+  }
+  
+  #overlay {
+    background-color: transparent !important;
+  }
+  
+  /* Change text color to dark grey */
+  body {
+    color: #444444 !important;
+  }
+  
+  #header h1,
+  #header p,
+  #header nav ul li a,
+  #footer .copyright,
+  #footer .copyright a {
+    color: #444444 !important;
+  }
+  
+  /* Remove black fade / gradient from footer */
+  #footer {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Remove any pseudo-elements that might cause gradient */
+  #footer::before,
+  #footer::after {
+    content: none !important;
+    background: none !important;
+    display: none !important;
+  }
+  
+  /* Sometimes themes add fade effects using wrapper's pseudo-elements */
+  #wrapper::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+  }
+  
