@@ -22,17 +22,49 @@
 				}
 			}
 
+			/* Updated scroll arrow styles */
+			.scroll-arrow {
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				bottom: 2em; /* Positioned at the bottom with margin */
+				z-index: 10;
+				opacity: 0; /* Start invisible for the animation */
+				animation: header 1s 3s forwards; /* Match header animation but with slight delay */
+			}
+			
 			.scroll-arrow svg {
 				animation: bounce 2s infinite;
 				cursor: pointer;
 			}
 			
-			.scroll-arrow {
-				position: absolute;
-				left: 50%;
-				transform: translateX(-50%);
-				bottom: 10em; /* Position it above the footer */
-				z-index: 10; /* Make sure it's above other elements */
+			/* Improved footer styling */
+			#footer {
+				position: relative;
+				bottom: 0;
+				width: 100%;
+				padding: 0 0;
+				background: transparent;
+				box-shadow: none;
+				text-align: center;
+				margin-top: auto;
+				height: auto;
+				line-height: 1.5em;
+			}
+
+			.light-grey-section {
+				padding-bottom: 2em; /* Add padding at the bottom */
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			
+			/* Ensure content takes appropriate space */
+			.light-grey-section .content {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
 			}
 		</style>
 	</head>
@@ -56,6 +88,7 @@
 						</nav>
 					</header>
 
+					<!-- Moved the scroll arrow outside of header but still within main -->
 					<div class="scroll-arrow" onclick="scrollToSection('second-page')">
 						<svg width="40" height="60" viewBox="0 0 40 60" fill="none" stroke="#444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
 							<line x1="20" y1="5" x2="20" y2="45"></line>
@@ -73,7 +106,7 @@
 				<p>This is the second page where you can add your content.</p>
 			</div>
 			
-			<!-- Footer moved to the end of the second page -->
+			<!-- Footer properly placed at the bottom of the second page -->
 			<footer id="footer">
 				<span class="copyright">&copy; 2025 Faz Forward Media. Designed by Faz, Template by <a href="http://html5up.net">HTML5 UP</a>.</span>
 			</footer>
