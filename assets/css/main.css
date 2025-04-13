@@ -1,4 +1,4 @@
-/* assets/css/simplified.css - Combined all CSS files */
+/* assets/css/main.css - Combined all CSS files */
 
 /* Base styles from main.css (only keeping what's needed) */
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
@@ -246,7 +246,9 @@ a:hover {
 #header nav a:before {
   transition: all 0.2s ease-in-out;
   border-radius: 100%;
-  border: solid 1px #444;
+  /* Changed this from border: solid 1px #444; to background-color */
+  background-color: transparent;
+  border: none;
   display: block;
   font-size: 1.75em;
   height: 2.5em;
@@ -264,6 +266,7 @@ a:hover {
 #header nav a:hover:before {
   background-color: rgba(200, 200, 200, 0.175);
   color: #888;
+  border: none;
 }
 
 #header nav a:active {
@@ -274,6 +277,7 @@ a:hover {
 #header nav a:active:before {
   background-color: rgba(200, 200, 200, 0.35);
   color: #888;
+  border: none;
 }
 
 #header nav a span {
