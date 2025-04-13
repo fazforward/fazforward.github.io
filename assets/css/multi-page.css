@@ -2,70 +2,84 @@
 
 /* Remove the fixed positioning and overflow hidden */
 body {
-    overflow-y: auto !important;
-    overflow-x: hidden;
-    height: auto;
-  }
-  
-  /* Full-screen section styling */
-  .section-fullscreen {
-    height: 100vh;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  /* Make wrapper position relative instead of fixed for the first section */
-  #wrapper {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-  }
-  
-  /* Green section styling */
-  .green-section {
-    background-color: #4CAF50;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-  }
-  
-  .green-section .content {
-    max-width: 800px;
-    padding: 2em;
-  }
-  
-  .green-section h2 {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-    color: white;
-  }
-  
-  .green-section p {
-    font-size: 1.5em;
-    line-height: 1.5;
-  }
-  
-  /* Upward arrow styling */
-  .up-arrow {
-    position: absolute;
-    bottom: 5em;
-  }
-  
-  /* Ensure the background animation doesn't affect scrolling */
-  #bg, #overlay {
-    position: absolute;
-  }
-  
-  /* Adjust main to be positioned within the section */
-  #main {
-    position: absolute;
-  }
-  
-  /* Ensure footer stays at the bottom of the first section */
-  #footer {
-    position: absolute;
-    bottom: 0;
-  }
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  height: auto;
+}
+
+/* Full-screen section styling */
+.section-fullscreen {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Make wrapper position relative instead of fixed for the first section */
+#wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+/* Light grey section styling (changed from green) */
+.light-grey-section {
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #444;
+  position: relative; /* For footer positioning */
+  min-height: 100vh; /* Ensure it's at least full height */
+}
+
+.light-grey-section .content {
+  max-width: 800px;
+  padding: 2em;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.light-grey-section h2 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  color: #444;
+}
+
+.light-grey-section p {
+  font-size: 1.5em;
+  line-height: 1.5;
+}
+
+/* Ensure the background animation doesn't affect scrolling */
+#bg, #overlay {
+  position: absolute;
+}
+
+/* Adjust main to be positioned within the section */
+#main {
+  position: absolute;
+  height: 100%;
+}
+
+/* Move footer to the second page and position it at the bottom */
+#footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 2em 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* Ensure the copyright text in footer is visible against light background */
+#footer .copyright, 
+#footer .copyright a {
+  color: #444;
+}
