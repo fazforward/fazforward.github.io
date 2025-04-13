@@ -1,0 +1,71 @@
+/* Multi-page layout styles */
+
+/* Remove the fixed positioning and overflow hidden */
+body {
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    height: auto;
+  }
+  
+  /* Full-screen section styling */
+  .section-fullscreen {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Make wrapper position relative instead of fixed for the first section */
+  #wrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  
+  /* Green section styling */
+  .green-section {
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+  
+  .green-section .content {
+    max-width: 800px;
+    padding: 2em;
+  }
+  
+  .green-section h2 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    color: white;
+  }
+  
+  .green-section p {
+    font-size: 1.5em;
+    line-height: 1.5;
+  }
+  
+  /* Upward arrow styling */
+  .up-arrow {
+    position: absolute;
+    bottom: 5em;
+  }
+  
+  /* Ensure the background animation doesn't affect scrolling */
+  #bg, #overlay {
+    position: absolute;
+  }
+  
+  /* Adjust main to be positioned within the section */
+  #main {
+    position: absolute;
+  }
+  
+  /* Ensure footer stays at the bottom of the first section */
+  #footer {
+    position: absolute;
+    bottom: 0;
+  }

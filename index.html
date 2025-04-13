@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/custom.css" />
+		<link rel="stylesheet" href="assets/css/multi-page.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
 			@keyframes bounce {
@@ -36,12 +37,13 @@
 		</style>
 	</head>
 	<body class="is-preload">
-		<div id="wrapper">
-			<div id="bg"></div>
-			<div id="overlay"></div>
-			<div id="main">
-
-				<!-- Header -->
+		<!-- First Section (Original landing page) -->
+		<section id="top" class="section-fullscreen">
+			<div id="wrapper">
+				<div id="bg"></div>
+				<div id="overlay"></div>
+				<div id="main">
+					<!-- Header -->
 					<header id="header">
 						<h1>Hi, I'm Faz!</h1>
 						<p>Check out some of my work below, or you can scroll down and hear my story.</p>
@@ -54,24 +56,44 @@
 						</nav>
 					</header>
 
-					<div class="scroll-arrow">
+					<div class="scroll-arrow" onclick="scrollToSection('second-page')">
 						<svg width="40" height="60" viewBox="0 0 40 60" fill="none" stroke="#444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
 							<line x1="20" y1="5" x2="20" y2="45"></line>
 							<polyline points="8 33 20 45 32 33"></polyline>
 						</svg>
 					</div>
 						
-				<!-- Footer -->
+					<!-- Footer -->
 					<footer id="footer">
 						<span class="copyright">&copy; 2025 Faz Forward Media. Designed by Faz, Template by <a href="http://html5up.net">HTML5 UP</a>.</span>
 					</footer>
-
+				</div>
 			</div>
-		</div>
+		</section>
+
+		<!-- Second Section (New green section) -->
+		<section id="second-page" class="section-fullscreen green-section">
+			<div class="content">
+				<h2>My Story</h2>
+				<p>This is the second page where you can add your content.</p>
+				<div class="scroll-arrow up-arrow" onclick="scrollToSection('top')">
+					<svg width="40" height="60" viewBox="0 0 40 60" fill="none" stroke="#444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="20" y1="45" x2="20" y2="5"></line>
+						<polyline points="8 17 20 5 32 17"></polyline>
+					</svg>
+				</div>
+			</div>
+		</section>
+
 		<script>
 			window.onload = function() { document.body.classList.remove('is-preload'); }
-			window.ontouchmove = function() { return false; }
-			window.onorientationchange = function() { document.body.scrollTop = 0; }
+			
+			// Smooth scrolling function
+			function scrollToSection(id) {
+				document.getElementById(id).scrollIntoView({
+					behavior: 'smooth'
+				});
+			}
 		</script>
 	</body>
 </html>
