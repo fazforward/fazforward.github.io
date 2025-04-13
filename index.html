@@ -43,7 +43,7 @@
 				position: relative;
 				bottom: 0;
 				width: 100%;
-				padding: 0 0;
+				padding: 2em 0;
 				background: transparent;
 				box-shadow: none;
 				text-align: center;
@@ -52,19 +52,49 @@
 				line-height: 1.5em;
 			}
 
-			.light-grey-section {
-				padding-bottom: 2em; /* Add padding at the bottom */
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
+			/* Modified icon hover styles to use gray instead of white */
+			#header nav a:hover:before {
+				background-color: rgba(200, 200, 200, 0.175);
+				color: #888; /* Gray color instead of white */
 			}
 			
-			/* Ensure content takes appropriate space */
+			#header nav a:active:before {
+				background-color: rgba(200, 200, 200, 0.35);
+				color: #888; /* Gray color instead of white */
+			}
+			
+			/* New second page layout styles */
+			.light-grey-section {
+				padding: 3em 2em 2em 2em; /* Add padding at the top and sides */
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start; /* Align content to the left */
+				justify-content: flex-start; /* Start content from the top */
+			}
+			
 			.light-grey-section .content {
+				max-width: 800px;
+				width: 100%;
+				margin: 0 auto;
+				text-align: left; /* Left-align text */
 				flex: 1;
 				display: flex;
 				flex-direction: column;
-				justify-content: center;
+				justify-content: flex-start; /* Start content from the top */
+				padding-top: 2em; /* Space from the top */
+			}
+			
+			.light-grey-section h2 {
+				font-size: 2.5em;
+				margin-bottom: 0.8em;
+				color: #444;
+				text-align: left; /* Left-align heading */
+			}
+			
+			.light-grey-section p {
+				font-size: 1.2em;
+				line-height: 1.6;
+				margin-bottom: 1em;
 			}
 		</style>
 	</head>
@@ -88,7 +118,7 @@
 						</nav>
 					</header>
 
-					<!-- Moved the scroll arrow outside of header but still within main -->
+					<!-- Scroll arrow with animation -->
 					<div class="scroll-arrow" onclick="scrollToSection('second-page')">
 						<svg width="40" height="60" viewBox="0 0 40 60" fill="none" stroke="#444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
 							<line x1="20" y1="5" x2="20" y2="45"></line>
@@ -99,11 +129,13 @@
 			</div>
 		</section>
 
-		<!-- Second Section (Light grey section) -->
+		<!-- Second Section (Light grey section) with updated title and layout -->
 		<section id="second-page" class="section-fullscreen light-grey-section">
 			<div class="content">
-				<h2>My Story</h2>
-				<p>This is the second page where you can add your content.</p>
+				<h2>Who am I?</h2>
+				<p>I'm a passionate creator who loves to build digital experiences that make a difference. With over 5 years of experience in web development and design, I focus on creating intuitive and engaging interfaces that solve real problems.</p>
+				<p>My journey began when I discovered the power of code to transform ideas into reality. Since then, I've been constantly learning and experimenting with new technologies to push the boundaries of what's possible on the web.</p>
+				<p>When I'm not coding, you can find me exploring photography, writing about technology trends, or experimenting with new digital art techniques.</p>
 			</div>
 			
 			<!-- Footer properly placed at the bottom of the second page -->
