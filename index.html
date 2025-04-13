@@ -1,103 +1,11 @@
 <!DOCTYPE HTML>
-
 <html>
 	<head>
 		<title>Faz Forward</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/custom.css" />
-		<link rel="stylesheet" href="assets/css/multi-page.css" />
+		<link rel="stylesheet" href="assets/css/simplified.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			@keyframes bounce {
-				0%, 20%, 50%, 80%, 100% {
-					transform: translateY(0);
-				}
-				40% {
-					transform: translateY(-8px);
-				}
-				60% {
-					transform: translateY(-4px);
-				}
-			}
-
-			/* Updated scroll arrow styles */
-			.scroll-arrow {
-				position: absolute;
-				left: 50%;
-				transform: translateX(-50%);
-				bottom: 2em; /* Positioned at the bottom with margin */
-				z-index: 10;
-				opacity: 0; /* Start invisible for the animation */
-				animation: header 1s 3s forwards; /* Match header animation but with slight delay */
-			}
-			
-			.scroll-arrow svg {
-				animation: bounce 2s infinite;
-				cursor: pointer;
-			}
-			
-			/* Improved footer styling - REMOVED PADDING */
-			#footer {
-				position: relative;
-				bottom: 0;
-				width: 100%;
-				padding: 0; /* Changed from 2em 0 to 0 */
-				background: transparent;
-				box-shadow: none;
-				text-align: center;
-				margin-top: auto;
-				height: auto;
-				line-height: 1.5em;
-			}
-
-			/* Modified icon hover styles to use gray instead of white */
-			#header nav a:hover:before {
-				background-color: rgba(200, 200, 200, 0.175);
-				color: #888; /* Gray color instead of white */
-			}
-			
-			#header nav a:active:before {
-				background-color: rgba(200, 200, 200, 0.35);
-				color: #888; /* Gray color instead of white */
-			}
-			
-			/* New second page layout styles */
-			.light-grey-section {
-				padding: 3em 2em 2em 2em; /* Add padding at the top and sides */
-				display: flex;
-				flex-direction: column;
-				align-items: flex-start; /* Align content to the left */
-				justify-content: flex-start; /* Start content from the top */
-			}
-			
-			.light-grey-section .content {
-				max-width: 800px;
-				width: 100%;
-				margin: 0 auto;
-				text-align: left; /* Left-align text */
-				flex: 1;
-				display: flex;
-				flex-direction: column;
-				justify-content: flex-start; /* Start content from the top */
-				padding-top: 2em; /* Space from the top */
-			}
-			
-			/* Updated Who am I? from h2 to h1 */
-			.light-grey-section h1 {
-				font-size: 2.5em;
-				margin-bottom: 0.8em;
-				color: #444;
-				text-align: left; /* Left-align heading */
-			}
-			
-			.light-grey-section p {
-				font-size: 1.2em;
-				line-height: 1.6;
-				margin-bottom: 1em;
-			}
-		</style>
 	</head>
 	<body class="is-preload">
 		<!-- First Section (Original landing page) -->
@@ -130,17 +38,16 @@
 			</div>
 		</section>
 
-		<!-- Second Section (Light grey section) with updated title and layout -->
+		<!-- Second Section (Light grey section) -->
 		<section id="second-page" class="section-fullscreen light-grey-section">
 			<div class="content">
-				<!-- Changed from h2 to h1 -->
 				<h1>Who am I?</h1>
 				<p>I'm a passionate creator who loves to build digital experiences that make a difference. With over 5 years of experience in web development and design, I focus on creating intuitive and engaging interfaces that solve real problems.</p>
 				<p>My journey began when I discovered the power of code to transform ideas into reality. Since then, I've been constantly learning and experimenting with new technologies to push the boundaries of what's possible on the web.</p>
 				<p>When I'm not coding, you can find me exploring photography, writing about technology trends, or experimenting with new digital art techniques.</p>
 			</div>
 			
-			<!-- Footer properly placed at the bottom of the second page - now with no padding -->
+			<!-- Footer properly placed at the bottom of the second page -->
 			<footer id="footer">
 				<span class="copyright">&copy; 2025 Faz Forward Media. Designed by Faz, Template by <a href="http://html5up.net">HTML5 UP</a>.</span>
 			</footer>

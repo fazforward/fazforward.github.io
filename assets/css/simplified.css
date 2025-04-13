@@ -1,0 +1,457 @@
+/* assets/css/simplified.css - Combined all CSS files */
+
+/* Base styles from main.css (only keeping what's needed) */
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
+@import url("fontawesome-all.min.css");
+
+/* Reset and basic elements */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, 
+footer, header, nav, section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  color: #444;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 15pt;
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  line-height: 1.75em;
+  background: white;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  height: auto;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  transition: border-color 0.2s ease-in-out;
+  border-bottom: dotted 1px;
+  color: inherit;
+  outline: 0;
+  text-decoration: none;
+}
+
+a:hover {
+  border-color: transparent;
+}
+
+/* Icon styling */
+.icon {
+  text-decoration: none;
+  position: relative;
+}
+
+.icon:before {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  text-transform: none !important;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+}
+
+.icon > .label {
+  display: none;
+}
+
+.icon.solid:before {
+  font-weight: 900;
+}
+
+.icon.brands:before {
+  font-family: 'Font Awesome 5 Brands';
+}
+
+/* Wrapper */
+@keyframes wrapper {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#wrapper {
+  animation: wrapper 3s forwards;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+
+/* Background */
+#bg {
+  animation: bg 60s linear infinite;
+  backface-visibility: hidden;
+  transform: translate3d(0,0,0);
+  background: white;
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+}
+
+@keyframes bg {
+  0% { transform: translate3d(0,0,0); }
+  100% { transform: translate3d(-2250px,0,0); }
+}
+
+#bg {
+  background-size: 2250px auto;
+  width: 6750px;
+}
+
+/* Overlay */
+@keyframes overlay {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#overlay {
+  animation: overlay 1.5s 1.5s forwards;
+  background: transparent;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/* Main section */
+#main {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+
+#main:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  margin-right: 0;
+  vertical-align: middle;
+  width: 1px;
+}
+
+/* Header */
+@keyframes header {
+  0% {
+    transform: translate3d(0,1em,0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0,0,0);
+    opacity: 1;
+  }
+}
+
+@keyframes nav-icons {
+  0% {
+    transform: translate3d(0,1em,0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0,0,0);
+    opacity: 1;
+  }
+}
+
+#header {
+  animation: header 1s 2.25s forwards;
+  backface-visibility: hidden;
+  transform: translate3d(0,0,0);
+  cursor: default;
+  display: inline-block;
+  opacity: 0;
+  position: relative;
+  text-align: center;
+  top: -1em;
+  vertical-align: middle;
+  width: 90%;
+  color: #444;
+}
+
+#header h1 {
+  font-size: 4.35em;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1em;
+  color: #444;
+}
+
+#header p {
+  font-size: 1.25em;
+  margin: 0.75em 0 0.25em 0;
+  opacity: 0.75;
+  color: #444;
+}
+
+#header nav {
+  margin: 1.5em 0 0 0;
+}
+
+#header nav li {
+  animation: nav-icons 0.5s ease-in-out forwards;
+  backface-visibility: hidden;
+  transform: translate3d(0,0,0);
+  display: inline-block;
+  height: 5.35em;
+  line-height: 5.885em;
+  opacity: 0;
+  position: relative;
+  top: 0;
+  width: 5.35em;
+}
+
+#header nav li:nth-child(1) { animation-delay: 2.5s; }
+#header nav li:nth-child(2) { animation-delay: 2.75s; }
+#header nav li:nth-child(3) { animation-delay: 3s; }
+#header nav li:nth-child(4) { animation-delay: 3.25s; }
+#header nav li:nth-child(5) { animation-delay: 3.5s; }
+#header nav li:nth-child(6) { animation-delay: 3.75s; }
+#header nav li:nth-child(7) { animation-delay: 4s; }
+#header nav li:nth-child(8) { animation-delay: 4.25s; }
+#header nav li:nth-child(9) { animation-delay: 4.5s; }
+#header nav li:nth-child(10) { animation-delay: 4.75s; }
+
+#header nav a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  border: 0;
+  display: inline-block;
+  color: #444;
+}
+
+#header nav a:before {
+  transition: all 0.2s ease-in-out;
+  border-radius: 100%;
+  border: solid 1px #444;
+  display: block;
+  font-size: 1.75em;
+  height: 2.5em;
+  line-height: 2.5em;
+  position: relative;
+  text-align: center;
+  top: 0;
+  width: 2.5em;
+}
+
+#header nav a:hover {
+  font-size: 1.1em;
+}
+
+#header nav a:hover:before {
+  background-color: rgba(200, 200, 200, 0.175);
+  color: #888;
+}
+
+#header nav a:active {
+  font-size: 0.95em;
+  background: none;
+}
+
+#header nav a:active:before {
+  background-color: rgba(200, 200, 200, 0.35);
+  color: #888;
+}
+
+#header nav a span {
+  display: none;
+}
+
+/* Footer */
+#footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+  margin-top: auto;
+  height: auto;
+  line-height: 1.5em;
+}
+
+#footer .copyright, 
+#footer .copyright a {
+  color: #444;
+}
+
+/* Section layouts */
+.section-fullscreen {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light grey section styling */
+.light-grey-section {
+  background-color: #f5f5f5;
+  padding: 3em 2em 2em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: #444;
+  position: relative;
+  min-height: 100vh;
+}
+
+.light-grey-section .content {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 2em;
+}
+
+.light-grey-section h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.8em;
+  color: #444;
+  text-align: left;
+}
+
+.light-grey-section p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+
+/* Scroll arrow animation */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+.scroll-arrow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2em;
+  z-index: 10;
+  opacity: 0;
+  animation: header 1s 3s forwards;
+}
+
+.scroll-arrow svg {
+  animation: bounce 2s infinite;
+  cursor: pointer;
+}
+
+/* Responsive design */
+@media screen and (max-width: 1680px) {
+  body, input, select, textarea {
+    font-size: 13pt;
+  }
+  
+  @keyframes bg {
+    0% { transform: translate3d(0,0,0); }
+    100% { transform: translate3d(-1500px,0,0); }
+  }
+  
+  #bg {
+    background-size: 1500px auto;
+    width: 4500px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  body, input, select, textarea {
+    font-size: 12pt;
+  }
+  
+  @keyframes bg {
+    0% { transform: translate3d(0,0,0); }
+    100% { transform: translate3d(-750px,0,0); }
+  }
+  
+  #bg {
+    background-size: 750px auto;
+    width: 2250px;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  body {
+    min-width: 320px;
+    font-size: 11pt;
+  }
+  
+  @keyframes bg {
+    0% { transform: translate3d(0,0,0); }
+    100% { transform: translate3d(-300px,0,0); }
+  }
+  
+  #bg {
+    background-size: 300px auto;
+    width: 900px;
+  }
+  
+  #header h1 {
+    font-size: 2.5em;
+  }
+  
+  #header p {
+    font-size: 1em;
+  }
+  
+  #header nav {
+    font-size: 1em;
+  }
+  
+  #header nav a:hover,
+  #header nav a:active {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  @keyframes bg {
+    0% { transform: translate3d(0,0,0); }
+    100% { transform: translate3d(-412.5px,0,0); }
+  }
+  
+  #bg {
+    background-size: 412.5px auto;
+    width: 1237.5px;
+  }
+  
+  #header nav {
+    padding: 0 1em;
+  }
+}
