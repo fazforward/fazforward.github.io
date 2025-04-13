@@ -38,12 +38,12 @@
 				cursor: pointer;
 			}
 			
-			/* Improved footer styling */
+			/* Improved footer styling - REMOVED PADDING */
 			#footer {
 				position: relative;
 				bottom: 0;
 				width: 100%;
-				padding: 2em 0;
+				padding: 0; /* Changed from 2em 0 to 0 */
 				background: transparent;
 				box-shadow: none;
 				text-align: center;
@@ -84,7 +84,8 @@
 				padding-top: 2em; /* Space from the top */
 			}
 			
-			.light-grey-section h2 {
+			/* Updated Who am I? from h2 to h1 */
+			.light-grey-section h1 {
 				font-size: 2.5em;
 				margin-bottom: 0.8em;
 				color: #444;
@@ -132,13 +133,14 @@
 		<!-- Second Section (Light grey section) with updated title and layout -->
 		<section id="second-page" class="section-fullscreen light-grey-section">
 			<div class="content">
-				<h2>Who am I?</h2>
+				<!-- Changed from h2 to h1 -->
+				<h1>Who am I?</h1>
 				<p>I'm a passionate creator who loves to build digital experiences that make a difference. With over 5 years of experience in web development and design, I focus on creating intuitive and engaging interfaces that solve real problems.</p>
 				<p>My journey began when I discovered the power of code to transform ideas into reality. Since then, I've been constantly learning and experimenting with new technologies to push the boundaries of what's possible on the web.</p>
 				<p>When I'm not coding, you can find me exploring photography, writing about technology trends, or experimenting with new digital art techniques.</p>
 			</div>
 			
-			<!-- Footer properly placed at the bottom of the second page -->
+			<!-- Footer properly placed at the bottom of the second page - now with no padding -->
 			<footer id="footer">
 				<span class="copyright">&copy; 2025 Faz Forward Media. Designed by Faz, Template by <a href="http://html5up.net">HTML5 UP</a>.</span>
 			</footer>
