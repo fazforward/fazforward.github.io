@@ -329,9 +329,9 @@ a:hover {
   display: none;
 }
 
-/* Footer Section */
+/* Footer Section - Updated color to coffee brown */
 .footer-section {
-  background-color: #c5bfb8;
+  background-color: #463226; /* Changed to a darker coffee brown */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -347,7 +347,7 @@ a:hover {
 
 #footer .copyright, 
 #footer .copyright a {
-  color: #584c3f;
+  color: #e8e4e0; /* Lighter color for better contrast */
 }
 
 /* Section layouts */
@@ -402,7 +402,7 @@ a:hover {
   opacity: 0.75; /* Same as first page */
 }
 
-/* Dark grey section styling - NEW SECTION */
+/* Dark grey section styling - UPDATED TO MATCH SECOND SECTION */
 .dark-grey-section {
   background-color: #e8e4e0; /* Slightly darker background */
   padding: 3em 2em 2em 2em;
@@ -417,11 +417,11 @@ a:hover {
   letter-spacing: -0.025em;
 }
 
-.dark-grey-section .content.right-aligned {
+.dark-grey-section .content {
   max-width: 800px;
   width: 100%;
-  margin: 0 10% 0 auto; /* Aligned to right */
-  text-align: right;
+  margin: 0 auto 0 10%; /* Match second section alignment */
+  text-align: left;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -436,7 +436,7 @@ a:hover {
   line-height: 1em;
   margin-bottom: 0.5em;
   color: #6b5d4c;
-  text-align: right;
+  text-align: left;
 }
 
 .dark-grey-section p {
@@ -444,15 +444,15 @@ a:hover {
   line-height: 1.75em;
   margin-bottom: 1em;
   opacity: 0.75;
-  text-align: right;
+  text-align: left;
 }
 
-/* Services list styling */
+/* Services list styling - Updated alignment */
 .services-list {
   margin: 0 0 1.5em 0;
   padding: 0;
   list-style-position: inside;
-  text-align: right;
+  text-align: left;
 }
 
 .services-list li {
@@ -460,6 +460,11 @@ a:hover {
   line-height: 1.65em;
   margin-bottom: 0.75em;
   opacity: 0.75;
+}
+
+/* Make strong text bolder */
+strong {
+  font-weight: 900; /* Bolder font weight */
 }
 
 /* Scroll arrow animation */
@@ -495,18 +500,6 @@ a:hover {
   body, input, select, textarea {
     font-size: 13pt;
   }
-  
-  /* Commented out background animation
-  @keyframes bg {
-    0% { transform: translate3d(0,0,0); }
-    100% { transform: translate3d(-1500px,0,0); }
-  }
-  
-  #bg {
-    background-size: 1500px auto;
-    width: 4500px;
-  }
-  */
 }
 
 @media screen and (max-width: 1280px) {
@@ -514,20 +507,8 @@ a:hover {
     font-size: 12pt;
   }
   
-  /* Commented out background animation
-  @keyframes bg {
-    0% { transform: translate3d(0,0,0); }
-    100% { transform: translate3d(-750px,0,0); }
-  }
-  
-  #bg {
-    background-size: 750px auto;
-    width: 2250px;
-  }
-  */
-  
   .light-grey-section .content,
-  .dark-grey-section .content.right-aligned {
+  .dark-grey-section .content {
     margin: 0 5%; /* Adjusted for smaller screens */
     text-align: center;
   }
@@ -543,18 +524,6 @@ a:hover {
     min-width: 320px;
     font-size: 11pt;
   }
-  
-  /* Commented out background animation
-  @keyframes bg {
-    0% { transform: translate3d(0,0,0); }
-    100% { transform: translate3d(-300px,0,0); }
-  }
-  
-  #bg {
-    background-size: 300px auto;
-    width: 900px;
-  }
-  */
   
   #header h1 {
     font-size: 2.5em;
@@ -586,7 +555,7 @@ a:hover {
   }
   
   .light-grey-section .content,
-  .dark-grey-section .content.right-aligned {
+  .dark-grey-section .content {
     margin: 0 1em; /* Adjusted for mobile */
     text-align: center;
   }
@@ -597,18 +566,6 @@ a:hover {
 }
 
 @media screen and (max-width: 480px) {
-  /* Commented out background animation
-  @keyframes bg {
-    0% { transform: translate3d(0,0,0); }
-    100% { transform: translate3d(-412.5px,0,0); }
-  }
-  
-  #bg {
-    background-size: 412.5px auto;
-    width: 1237.5px;
-  }
-  */
-  
   #header nav {
     padding: 0 1em;
   }
@@ -632,46 +589,11 @@ a:hover {
   cursor: pointer;
 }
 
-/* New white content box for the third section */
-.white-content-box {
-  background-color: #ffffff;
-  padding: 2em;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-left: auto;
-  margin-right: 0;
-  max-width: 700px;
-  width: 100%;
-  text-align: left;
-}
+/* White content box - REMOVED */
 
-.white-content-box p,
-.white-content-box ul.services-list {
-  text-align: left;
-}
-
-.white-content-box .services-list li {
-  text-align: left;
-}
-
-/* Responsive adjustments for the white content box */
-@media screen and (max-width: 1280px) {
-  .white-content-box {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 90%;
-  }
-}
-
+/* Responsive adjustments for mobile */
 @media screen and (max-width: 736px) {
-  .white-content-box {
-    padding: 1.5em;
-    max-width: 100%;
-  }
-  
-  .white-content-box p,
-  .white-content-box ul.services-list,
-  .white-content-box .services-list li {
+  .services-list li {
     text-align: center;
   }
 }
