@@ -4,40 +4,6 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
 @import url("fontawesome-all.min.css");
 
-/* Keep the main centered properly */
-#main {
-    height: 100%;
-    left: 0;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Remove the :before pseudo-element that was causing alignment issues */
-  #main:before {
-    display: none;
-  }
-  
-  /* Adjust header to work with the flex layout */
-  #header {
-    animation: header 1s 2.25s forwards;
-    backface-visibility: hidden;
-    transform: translate3d(0,0,0);
-    cursor: default;
-    opacity: 0;
-    position: relative;
-    text-align: center;
-    width: 90%;
-    color: #444;
-    /* Remove top: -1em as it's no longer needed with flex centering */
-    top: 0;
-    /* No need for vertical-align with flexbox */
-  }
-
 /* Reset and basic elements */
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, 
 footer, header, nav, section {
@@ -131,31 +97,14 @@ a:hover {
 
 /* Background - SIMPLIFIED TO SOLID WHITE */
 #bg {
-  /* Original animation and styling commented out
-  animation: bg 60s linear infinite;
-  backface-visibility: hidden;
-  transform: translate3d(0,0,0);
-  */
   background: white; /* Simple white background */
   height: 100%;
   left: 0;
   opacity: 1;
   position: absolute;
   top: 0;
-  width: 100%; /* Changed from 6750px to 100% */
+  width: 100%;
 }
-
-/* Original background animations commented out
-@keyframes bg {
-  0% { transform: translate3d(0,0,0); }
-  100% { transform: translate3d(-2250px,0,0); }
-}
-
-#bg {
-  background-size: 2250px auto;
-  width: 6750px;
-}
-*/
 
 /* Overlay */
 @keyframes overlay {
@@ -182,15 +131,10 @@ a:hover {
   text-align: center;
   top: 0;
   width: 100%;
-}
-
-#main:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  margin-right: 0;
-  vertical-align: middle;
-  width: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* Header */
@@ -221,12 +165,9 @@ a:hover {
   backface-visibility: hidden;
   transform: translate3d(0,0,0);
   cursor: default;
-  display: inline-block;
   opacity: 0;
   position: relative;
   text-align: center;
-  top: -1em;
-  vertical-align: middle;
   width: 90%;
   color: #444;
 }
@@ -329,46 +270,23 @@ a:hover {
   display: none;
 }
 
-/* Footer Section - Updated color to coffee brown */
-.footer-section {
-  background-color: #463226; /* Changed to a darker coffee brown */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1.5em 0;
-  width: 100%;
-}
-
-/* Footer */
-#footer {
-  width: 100%;
-  text-align: center;
-}
-
-#footer .copyright, 
-#footer .copyright a {
-  color: #e8e4e0; /* Lighter color for better contrast */
-}
-
-/* Section layouts */
+/* Section layouts - UPDATED FOR CONSISTENT RESPONSIVE BEHAVIOR */
 .section-fullscreen {
-  height: 100vh;
+  min-height: 100vh; /* Use min-height instead of fixed height */
   width: 100%;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  box-sizing: border-box; /* Include padding in the height calculation */
 }
 
 /* Light grey section styling */
 .light-grey-section {
   background-color: #f5f5f5;
-  padding: 3em 2em 2em 2em;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  color: #6b5d4c; /* Changed to slightly browner color */
-  position: relative;
-  min-height: 100vh;
+  padding: 4em 2em;
+  color: #6b5d4c;
   font-family: 'Source Sans Pro', sans-serif;
   letter-spacing: -0.025em;
 }
@@ -376,43 +294,35 @@ a:hover {
 .light-grey-section .content {
   max-width: 800px;
   width: 100%;
-  margin: 0 auto 0 10%; /* Moved further to the left */
+  margin: 0 auto 0 10%;
   text-align: left;
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 2em;
 }
 
 .light-grey-section h1 {
-  font-size: 4.35em; /* Same as first page */
-  font-weight: 900; /* Bold like first page */
+  font-size: 4.35em;
+  font-weight: 900;
   letter-spacing: -0.035em;
   line-height: 1em;
   margin-bottom: 0.5em;
-  color: #6b5d4c; /* Changed to slightly browner color */
+  color: #6b5d4c;
   text-align: left;
 }
 
 .light-grey-section p {
-  font-size: 1.25em; /* Same as first page paragraph */
-  line-height: 1.75em; /* Match first page */
+  font-size: 1.25em;
+  line-height: 1.75em;
   margin-bottom: 1em;
-  opacity: 0.75; /* Same as first page */
+  opacity: 0.75;
 }
 
-/* Dark grey section styling - UPDATED TO MATCH SECOND SECTION */
+/* Dark grey section styling */
 .dark-grey-section {
-  background-color: #e8e4e0; /* Slightly darker background */
-  padding: 3em 2em 2em 2em;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  color: #6b5d4c; /* Slightly browner color to match second section */
-  position: relative;
-  min-height: 100vh;
+  background-color: #e8e4e0;
+  padding: 4em 2em;
+  color: #6b5d4c;
   font-family: 'Source Sans Pro', sans-serif;
   letter-spacing: -0.025em;
 }
@@ -420,13 +330,11 @@ a:hover {
 .dark-grey-section .content {
   max-width: 800px;
   width: 100%;
-  margin: 0 auto 0 10%; /* Match second section alignment */
+  margin: 0 auto 0 10%;
   text-align: left;
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 2em;
 }
 
 .dark-grey-section h1 {
@@ -447,7 +355,36 @@ a:hover {
   text-align: left;
 }
 
-/* Services list styling - Updated alignment */
+/* Darker grey section styling */
+.darker-grey-section {
+  background-color: #d6d0c9;
+  padding: 4em 2em;
+  color: #6b5d4c;
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.darker-grey-section .content.left-aligned {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto 0 10%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.darker-grey-section h1 {
+  font-size: 4.35em;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1em;
+  margin-bottom: 0.5em;
+  color: #6b5d4c;
+  text-align: left;
+}
+
+/* Services list styling */
 .services-list {
   margin: 0 0 1.5em 0;
   padding: 0;
@@ -464,7 +401,7 @@ a:hover {
 
 /* Make strong text bolder */
 strong {
-  font-weight: 900; /* Bolder font weight */
+  font-weight: 900;
 }
 
 /* Scroll arrow animation */
@@ -482,100 +419,6 @@ strong {
 
 .scroll-arrow {
   position: absolute;
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Ensure perfect centering */
-  bottom: 2em;
-  z-index: 10;
-  opacity: 0;
-  animation: header 1s 3s forwards;
-}
-
-.scroll-arrow svg {
-  animation: bounce 2s infinite;
-  cursor: pointer;
-}
-
-/* Responsive design */
-@media screen and (max-width: 1680px) {
-  body, input, select, textarea {
-    font-size: 13pt;
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  body, input, select, textarea {
-    font-size: 12pt;
-  }
-  
-  .light-grey-section .content,
-  .dark-grey-section .content {
-    margin: 0 5%; /* Adjusted for smaller screens */
-    text-align: center;
-  }
-  
-  .dark-grey-section h1,
-  .services-list {
-    text-align: center;
-  }
-}
-
-@media screen and (max-width: 736px) {
-  body {
-    min-width: 320px;
-    font-size: 11pt;
-  }
-  
-  #header h1 {
-    font-size: 2.5em;
-  }
-  
-  #header p {
-    font-size: 1em;
-  }
-  
-  #header nav {
-    font-size: 1em;
-  }
-  
-  #header nav a:hover,
-  #header nav a:active {
-    font-size: 1em;
-  }
-  
-  .light-grey-section h1,
-  .dark-grey-section h1 {
-    font-size: 2.5em; /* Match responsive first page */
-    text-align: center;
-  }
-  
-  .light-grey-section p,
-  .dark-grey-section p {
-    font-size: 1em; /* Match responsive first page */
-    text-align: center;
-  }
-  
-  .light-grey-section .content,
-  .dark-grey-section .content {
-    margin: 0 1em; /* Adjusted for mobile */
-    text-align: center;
-  }
-  
-  .services-list li {
-    text-align: center;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  #header nav {
-    padding: 0 1em;
-  }
-}
-
-/* Add these styles to your main.css file */
-
-/* Updated scroll arrow positioning */
-.scroll-arrow {
-  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   bottom: 2em;
@@ -589,62 +432,25 @@ strong {
   cursor: pointer;
 }
 
-/* White content box - REMOVED */
-
-/* Responsive adjustments for mobile */
-@media screen and (max-width: 736px) {
-  .services-list li {
-    text-align: center;
-  }
-}
-
-/* Add these new styles to your main.css file */
-
-/* 1. Fix for the scroll arrow positioning */
-.scroll-arrow {
-  position: absolute;
-  left: calc(50% - 20px); /* 50% minus half the width of the SVG (40px) */
-  bottom: 2em;
-  z-index: 10;
-  opacity: 0;
-  animation: header 1s 3s forwards;
-}
-
-/* 2. New section 4 styles */
-.darker-grey-section {
-  background-color: #d6d0c9; /* Slightly darker than the previous section */
-  padding: 3em 2em 2em 2em;
+/* Footer Section */
+.footer-section {
+  background-color: #463226;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  color: #6b5d4c;
-  position: relative;
-  min-height: 100vh;
-  font-family: 'Source Sans Pro', sans-serif;
-  letter-spacing: -0.025em;
-}
-
-.darker-grey-section .content.left-aligned {
-  max-width: 800px;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5em 0;
   width: 100%;
-  margin: 0 auto 0 10%; /* Aligned to left */
-  text-align: left;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 2em;
 }
 
-.darker-grey-section h1 {
-  font-size: 4.35em;
-  font-weight: 900;
-  letter-spacing: -0.035em;
-  line-height: 1em;
-  margin-bottom: 0.5em;
-  color: #6b5d4c;
-  text-align: left;
+/* Footer */
+#footer {
+  width: 100%;
+  text-align: center;
+}
+
+#footer .copyright, 
+#footer .copyright a {
+  color: #e8e4e0;
 }
 
 /* Contact form styles */
@@ -703,30 +509,157 @@ strong {
   background-color: #584c3f;
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 1280px) {
-  .darker-grey-section .content.left-aligned {
-    margin: 0 5%;
+/* Responsive design - IMPROVED FOR CONSISTENCY */
+@media screen and (max-width: 1680px) {
+  body, input, select, textarea {
+    font-size: 13pt;
   }
   
-  .contact-form-container {
-    max-width: 100%;
+  .light-grey-section h1,
+  .dark-grey-section h1,
+  .darker-grey-section h1 {
+    font-size: 3.8em;
   }
 }
 
-@media screen and (max-width: 736px) {
-  .darker-grey-section h1 {
-    font-size: 2.5em;
-    text-align: center;
+@media screen and (max-width: 1280px) {
+  body, input, select, textarea {
+    font-size: 12pt;
   }
   
+  .light-grey-section h1,
+  .dark-grey-section h1,
+  .darker-grey-section h1 {
+    font-size: 3.2em;
+  }
+  
+  .light-grey-section .content,
+  .dark-grey-section .content,
   .darker-grey-section .content.left-aligned {
-    margin: 0 1em;
+    margin: 0 auto;
+    width: 80%;
     text-align: center;
     align-items: center;
   }
   
+  .light-grey-section h1,
+  .dark-grey-section h1,
+  .darker-grey-section h1,
+  .services-list {
+    text-align: center;
+  }
+  
+  .services-list li {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .section-fullscreen {
+    padding: 3em 1.5em;
+  }
+  
+  .light-grey-section h1,
+  .dark-grey-section h1,
+  .darker-grey-section h1 {
+    font-size: 2.8em;
+  }
+  
+  .light-grey-section .content,
+  .dark-grey-section .content,
+  .darker-grey-section .content.left-aligned {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  body {
+    min-width: 320px;
+    font-size: 11pt;
+  }
+  
+  .section-fullscreen {
+    padding: 2em 1em;
+  }
+  
+  #header h1 {
+    font-size: 2.5em;
+  }
+  
+  #header p {
+    font-size: 1em;
+  }
+  
+  #header nav {
+    font-size: 1em;
+  }
+  
+  #header nav a:hover,
+  #header nav a:active {
+    font-size: 1em;
+  }
+  
+  .light-grey-section h1,
+  .dark-grey-section h1,
+  .darker-grey-section h1 {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 0.7em;
+  }
+  
+  .light-grey-section p,
+  .dark-grey-section p {
+    font-size: 1em;
+    text-align: center;
+  }
+  
+  .light-grey-section .content,
+  .dark-grey-section .content,
+  .darker-grey-section .content.left-aligned {
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .services-list li {
+    text-align: center;
+  }
+  
   .submit-button {
     align-self: center;
+  }
+  
+  .scroll-arrow {
+    bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #header nav {
+    padding: 0 1em;
+  }
+  
+  .light-grey-section h1,
+  .dark-grey-section h1,
+  .darker-grey-section h1 {
+    font-size: 2em;
+  }
+  
+  .section-fullscreen {
+    padding: 2em 0.75em;
+  }
+}
+
+/* iPhone SE and other small screens */
+@media screen and (max-width: 375px) {
+  .light-grey-section h1,
+  .dark-grey-section h1,
+  .darker-grey-section h1 {
+    font-size: 1.8em;
+  }
+  
+  .services-list li {
+    font-size: 0.95em;
   }
 }
