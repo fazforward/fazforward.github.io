@@ -1,5 +1,5 @@
 // Import fonts and FontAwesome
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900&display=swap");
 @import url("fontawesome-all.min.css");
 
 // Variables
@@ -13,14 +13,12 @@ $line-height: 1.75em;
 // Colors
 $text-color: #444;
 $light-text-color: #e8e4e0;
-// Improved text color for better contrast
 $section-text-color: #3d352d;
 $bg-color: white;
 $light-grey-bg: #f5f5f5;
 $dark-grey-bg: #e8e4e0;
 $darker-grey-bg: #d6d0c9;
 $footer-bg: #463226;
-// Enhanced button colors for better contrast
 $btn-color: #584738;
 $btn-hover-color: #473a2e;
 $action-btn-color: #5d493b;
@@ -40,35 +38,68 @@ $breakpoint-xxsmall: 375px;
   -webkit-#{$property}: $value;
   -moz-#{$property}: $value;
   -ms-#{$property}: $value;
-  -o-#{$property}: $value;
   #{$property}: $value;
 }
 
 @mixin keyframes($name) {
-  @-webkit-keyframes #{$name} {
-    @content;
-  }
-  @-moz-keyframes #{$name} {
-    @content;
-  }
-  @-ms-keyframes #{$name} {
-    @content;
-  }
-  @keyframes #{$name} {
-    @content;
-  }
+  @-webkit-keyframes #{$name} { @content; }
+  @-moz-keyframes #{$name} { @content; }
+  @keyframes #{$name} { @content; }
 }
 
 @mixin animation($value) {
   -webkit-animation: $value;
   -moz-animation: $value;
-  -ms-animation: $value;
   animation: $value;
+}
+
+// Common section styles
+@mixin section-heading {
+  font-size: 4.35em;
+  font-weight: $font-weight-bold;
+  letter-spacing: -0.035em;
+  line-height: 1em;
+  margin-bottom: 0.5em;
+  color: $section-text-color;
+  text-align: left;
+}
+
+@mixin section-paragraph {
+  font-size: 1.25em;
+  line-height: $line-height;
+  margin-bottom: 1em;
+  opacity: 0.9;
+  text-align: left;
+}
+
+// Button base style
+%button-base {
+  background-color: $btn-color;
+  color: white;
+  border: none;
+  padding: 0.75em 1.5em;
+  font-size: 1.1em;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(88, 71, 56, 0.2);
+  
+  &:hover {
+    background-color: $btn-hover-color;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(88, 71, 56, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(88, 71, 56, 0.2);
+  }
 }
 
 // Reset and basic elements
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, 
-footer, header, nav, section {
+footer, header, nav, section, ol, ul {
   margin: 0;
   padding: 0;
   border: 0;
@@ -176,15 +207,9 @@ a {
 }
 
 @include keyframes(bounce) {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-8px);
-  }
-  60% {
-    transform: translateY(-4px);
-  }
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
 }
 
 @include keyframes(fadeInUp) {
@@ -397,22 +422,11 @@ a {
 .dark-grey-section,
 .darker-grey-section {
   h1 {
-    font-size: 4.35em;
-    font-weight: $font-weight-bold;
-    letter-spacing: -0.035em;
-    line-height: 1em;
-    margin-bottom: 0.5em;
-    color: $section-text-color;
-    text-align: left;
+    @include section-heading;
   }
   
   p {
-    font-size: 1.25em;
-    line-height: $line-height;
-    margin-bottom: 1em;
-    // Improved opacity for better readability
-    opacity: 0.9;
-    text-align: left;
+    @include section-paragraph;
   }
 }
 
@@ -427,7 +441,6 @@ a {
     font-size: 1.1em;
     line-height: 1.65em;
     margin-bottom: 0.75em;
-    // Improved opacity for better readability
     opacity: 0.9;
   }
 }
@@ -444,7 +457,7 @@ strong {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-bottom: 60px; /* Equal to arrow height */
+  padding-bottom: 60px;
 }
 
 .scroll-arrow {
@@ -520,30 +533,6 @@ strong {
 }
 
 /* Buttons */
-%button-base {
-  background-color: $btn-color;
-  color: white;
-  border: none;
-  padding: 0.75em 1.5em;
-  font-size: 1.1em;
-  font-weight: 600;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(88, 71, 56, 0.2);
-  
-  &:hover {
-    background-color: $btn-hover-color;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(88, 71, 56, 0.3);
-  }
-  
-  &:active {
-    transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(88, 71, 56, 0.2);
-  }
-}
-
 .submit-button {
   @extend %button-base;
   align-self: flex-start;
@@ -593,7 +582,7 @@ strong {
   p.animated:nth-of-type(2) { animation-delay: 0.5s; }
   p.animated:nth-of-type(3) { animation-delay: 0.6s; }
   p.animated:nth-of-type(4) { animation-delay: 0.7s; }
-  p.animated:nth-of-type(5) { animation-delay: 0.7s; } /* Added for last paragraph in third section */
+  p.animated:nth-of-type(5) { animation-delay: 0.7s; }
   ul.animated { animation-delay: 0.6s; }
   .button-container.animated { animation-delay: 0.8s; }
   .contact-form-container.animated { animation-delay: 0.5s; }
