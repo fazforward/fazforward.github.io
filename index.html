@@ -41,12 +41,12 @@
 		<!-- Second Section (Light grey section) -->
 		<section id="second-page" class="section-fullscreen light-grey-section">
 			<div class="content">
-				<h1>Who am I?</h1>
-				<p>I'm a creative professional with experience in 4 fields: Tech, Business, Finance, and Media. As a result, I have a diverse and holistic understanding of anything I decided to get into.</p>
-				<p>I've operated various social media accounts, a full-blown content production (planning, writing, directing, animating, voiceover, editing), a crypto arbitrage operation, and the good old freelancing gigs.</p>
-				<p>In other words, a well-rounded team player who loves to bridge different tribes: Technical wizards to regular Joes. Idealists to pragmatists. Number crunchers to artists. Well-established veterans to innovative newcomers.</p>
-				<p>So, if you need someone who can understand the big picture, resourceful, adaptable, and able to think out of the box… I'm your guy!</p>
-				<div class="button-container">
+				<h1 class="animated">Who am I?</h1>
+				<p class="animated">I'm a creative professional with experience in 4 fields: Tech, Business, Finance, and Media. As a result, I have a diverse and holistic understanding of anything I decided to get into.</p>
+				<p class="animated">I've operated various social media accounts, a full-blown content production (planning, writing, directing, animating, voiceover, editing), a crypto arbitrage operation, and the good old freelancing gigs.</p>
+				<p class="animated">In other words, a well-rounded team player who loves to bridge different tribes: Technical wizards to regular Joes. Idealists to pragmatists. Number crunchers to artists. Well-established veterans to innovative newcomers.</p>
+				<p class="animated">So, if you need someone who can understand the big picture, resourceful, adaptable, and able to think out of the box… I'm your guy!</p>
+				<div class="button-container animated">
 					<a href="#" class="action-button">See the stuff I make</a>
 				</div>
 			</div>
@@ -55,18 +55,18 @@
 		<!-- Third Section (Dark grey section) -->
 		<section id="third-page" class="section-fullscreen dark-grey-section">
 			<div class="content">
-				<h1>What can I do for you?</h1>
-				<p>I'm ready to roll up my sleeves and get into different things: represent, manage, plan, execute, and expand your vision in various aspects:</p>
-				<ul class="services-list">
+				<h1 class="animated">What can I do for you?</h1>
+				<p class="animated">I'm ready to roll up my sleeves and get into different things: represent, manage, plan, execute, and expand your vision in various aspects:</p>
+				<ul class="services-list animated">
 					<li><strong>Communication</strong> - Persuasive writing, being the face of the company, mediating between different parties.</li>
 					<li><strong>Content Creation</strong> - Planning, writing, directing, starring, editing.</li>
 					<li><strong>Management</strong> - Extra hands to run your operations, bridging people from different worlds.</li>
 					<li><strong>Strategist</strong> - Navigating a crossover between different fields, unknown territory, and reviewing options and risks during uncertain times.</li>
 				</ul>
-				<p>Want more details? feel free to talk to me personally by scheduling a free 30 mins consultation or go to my agency page to see list of services I offer.</p>
-				<div class="button-container">
+				<p class="animated">Want more details? feel free to talk to me personally by scheduling a free 30 mins consultation or go to my agency page to see list of services I offer.</p>
+				<div class="button-container animated">
 					<a href="#" class="action-button">Schedule a call</a>
-					<a href="#" class="action-button">Go to agency page</a>
+					<a href="#" class="action-button secondary">Go to agency page</a>
 				</div>
 			</div>
 		</section>
@@ -74,8 +74,8 @@
         <!-- Fourth Section (Darker grey section with contact form) -->
         <section id="fourth-page" class="section-fullscreen darker-grey-section">
             <div class="content left-aligned">
-                <h1>Contact me</h1>
-                <div class="contact-form-container">
+                <h1 class="animated">Contact me</h1>
+                <div class="contact-form-container animated">
                     <form action="https://formspree.io/f/xoqywygb" method="post" class="contact-form">
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -117,6 +117,33 @@
 					behavior: 'smooth'
 				});
 			}
+			
+			// Intersection Observer for scroll animations
+			document.addEventListener('DOMContentLoaded', function() {
+				// IntersectionObserver setup for animation triggers
+				const observer = new IntersectionObserver((entries) => {
+					entries.forEach(entry => {
+						// If element is in viewport
+						if (entry.isIntersecting) {
+							// Add animation class
+							const animatedElements = entry.target.querySelectorAll('.animated');
+							animatedElements.forEach(el => {
+								el.classList.add('fadeInUp');
+							});
+							// Unobserve after animation is triggered
+							observer.unobserve(entry.target);
+						}
+					});
+				}, {
+					threshold: 0.1 // Trigger when 10% of the element is visible
+				});
+				
+				// Observe all sections except the first one (which has its own animations)
+				const sections = document.querySelectorAll('#second-page, #third-page, #fourth-page');
+				sections.forEach(section => {
+					observer.observe(section);
+				});
+			});
 		</script>
 	</body>
 </html>

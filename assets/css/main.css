@@ -507,11 +507,19 @@ strong {
   cursor: pointer;
   transition: background-color 0.3s ease;
   align-self: flex-start;
+  box-shadow: 0 2px 4px rgba(107, 93, 76, 0.2);
 }
 
 .submit-button:hover {
   background-color: #584c3f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(107, 93, 76, 0.3);
 }
+
+.submit-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(107, 93, 76, 0.2);
+} 
 
 /* Button Container - For horizontal alignment of buttons */
 .button-container {
@@ -521,10 +529,10 @@ strong {
   flex-wrap: wrap; /* Allow buttons to wrap on small screens */
 }
 
-/* Action Buttons */
+/* Action Buttons - UPDATED to match submit button style */
 .action-button {
   display: inline-block;
-  background-color: #6b5d4c;
+  background-color: #7e6d5c; /* Slightly different color */
   color: white;
   font-weight: 600;
   padding: 0.75em 1.5em;
@@ -534,16 +542,80 @@ strong {
   border: none;
   font-size: 1.1em;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(107, 93, 76, 0.2);
 }
 
 .action-button:hover {
-  background-color: #584c3f;
+  background-color: #6d5c4b;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(107, 93, 76, 0.2);
+  box-shadow: 0 4px 8px rgba(107, 93, 76, 0.3);
 }
 
 .action-button:active {
   transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(107, 93, 76, 0.2);
+}
+
+/* Secondary action button with alternative color */
+.action-button.secondary {
+  background-color: #8a7865; /* Even more different color for variety */
+}
+
+.action-button.secondary:hover {
+  background-color: #796754;
+}
+
+/* ANIMATIONS FOR SECTION CONTENT */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated {
+  opacity: 0;
+}
+
+.fadeInUp {
+  animation: fadeInUp 1s forwards;
+}
+
+/* Sequential animation delays for content elements */
+.content h1.animated {
+  animation-delay: 0.2s;
+}
+
+.content p.animated:nth-of-type(1) {
+  animation-delay: 0.4s;
+}
+
+.content p.animated:nth-of-type(2) {
+  animation-delay: 0.5s;
+}
+
+.content p.animated:nth-of-type(3) {
+  animation-delay: 0.6s;
+}
+
+.content p.animated:nth-of-type(4) {
+  animation-delay: 0.7s;
+}
+
+.content ul.animated {
+  animation-delay: 0.6s;
+}
+
+.button-container.animated {
+  animation-delay: 0.8s;
+}
+
+.contact-form-container.animated {
+  animation-delay: 0.5s;
 }
 
 /* Responsive design - IMPROVED FOR CONSISTENCY */
@@ -671,8 +743,14 @@ strong {
     align-self: center;
   }
   
+  /* CHANGED: Scroll arrow centered horizontally on mobile */
   .scroll-arrow {
     bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    margin: 0 auto;
+    position: absolute;
   }
   
   .action-button {
