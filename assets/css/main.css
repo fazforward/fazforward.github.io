@@ -681,3 +681,96 @@ strong {
     width: 32px;
   }
 }
+
+/* Update button styles for better mobile display */
+.button-container {
+  display: flex;
+  gap: 1em;
+  margin: 1.5em 0 0.5em 0;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.action-button {
+  display: inline-block;
+  background-color: #7e6d5c;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  min-width: 180px; /* Set a minimum width instead of stretching full width */
+  max-width: fit-content; /* Prevent extreme stretching */
+}
+
+.action-button.secondary {
+  background-color: #8a7865;
+}
+
+.action-button.secondary:hover {
+  background-color: #796754;
+}
+
+/* Fix the arrow alignment for different screen sizes */
+.scroll-arrow-container {
+  position: absolute;
+  bottom: 2em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 60px; /* Equal to arrow height */
+}
+
+.scroll-arrow {
+  opacity: 0;
+  animation: header 1s 3s forwards;
+  margin: 0 auto;
+}
+
+/* Responsive updates for mobile */
+@media screen and (max-width: 736px) {
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0.8em;
+  }
+  
+  .action-button {
+    width: auto; /* Override the 100% width */
+    min-width: 180px;
+    max-width: 80%; /* Cap the maximum width */
+    padding: 0.75em 1.5em;
+  }
+  
+  .submit-button {
+    align-self: center;
+    width: auto;
+    min-width: 180px;
+    max-width: 80%;
+  }
+  
+  /* Fix the arrow offset on mobile */
+  .scroll-arrow-container {
+    bottom: 1em;
+    transform: translateX(-5px); /* Shift slightly left on mobile */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .action-button, .submit-button {
+    max-width: 85%; /* Slightly wider on very small screens */
+  }
+  
+  .scroll-arrow-container {
+    transform: translateX(-8px); /* Shift more to the left on smaller screens */
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .action-button, .submit-button {
+    max-width: 90%;
+  } 
+  
+  .scroll-arrow-container {
+    transform: translateX(-10px); /* Shift even more on very small screens */
+  }
+}
