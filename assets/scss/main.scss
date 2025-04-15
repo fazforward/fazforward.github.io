@@ -13,17 +13,19 @@ $line-height: 1.75em;
 // Colors
 $text-color: #444;
 $light-text-color: #e8e4e0;
-$section-text-color: #6b5d4c;
+// Improved text color for better contrast
+$section-text-color: #3d352d;
 $bg-color: white;
 $light-grey-bg: #f5f5f5;
 $dark-grey-bg: #e8e4e0;
 $darker-grey-bg: #d6d0c9;
 $footer-bg: #463226;
-$btn-color: #6b5d4c;
-$btn-hover-color: #584c3f;
-$action-btn-color: #7e6d5c;
-$action-btn-secondary: #8a7865;
-$action-btn-secondary-hover: #796754;
+// Enhanced button colors for better contrast
+$btn-color: #584738;
+$btn-hover-color: #473a2e;
+$action-btn-color: #5d493b;
+$action-btn-secondary: #6c5745;
+$action-btn-secondary-hover: #5a4838;
 
 // Breakpoints
 $breakpoint-xlarge: 1680px;
@@ -408,7 +410,8 @@ a {
     font-size: 1.25em;
     line-height: $line-height;
     margin-bottom: 1em;
-    opacity: 0.75;
+    // Improved opacity for better readability
+    opacity: 0.9;
     text-align: left;
   }
 }
@@ -424,7 +427,8 @@ a {
     font-size: 1.1em;
     line-height: 1.65em;
     margin-bottom: 0.75em;
-    opacity: 0.75;
+    // Improved opacity for better readability
+    opacity: 0.9;
   }
 }
 
@@ -526,17 +530,17 @@ strong {
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(107, 93, 76, 0.2);
+  box-shadow: 0 2px 4px rgba(88, 71, 56, 0.2);
   
   &:hover {
     background-color: $btn-hover-color;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(107, 93, 76, 0.3);
+    box-shadow: 0 4px 8px rgba(88, 71, 56, 0.3);
   }
   
   &:active {
     transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(107, 93, 76, 0.2);
+    box-shadow: 0 1px 2px rgba(88, 71, 56, 0.2);
   }
 }
 
