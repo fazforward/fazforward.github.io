@@ -420,16 +420,20 @@ strong {
 .scroll-arrow {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
   bottom: 2em;
+  transform: translateX(-50%);
   z-index: 10;
   opacity: 0;
   animation: header 1s 3s forwards;
+  width: 40px; /* Set a fixed width for better mobile positioning */
+  margin: 0 auto; /* Center the element */
 }
 
 .scroll-arrow svg {
   animation: bounce 2s infinite;
   cursor: pointer;
+  display: block; /* Make SVG a block element */
+  margin: 0 auto; /* Center SVG within its container */
 }
 
 /* Footer Section */
@@ -509,6 +513,39 @@ strong {
   background-color: #584c3f;
 }
 
+/* Button Container - For horizontal alignment of buttons */
+.button-container {
+  display: flex;
+  gap: 1em;
+  margin: 1.5em 0 0.5em 0;
+  flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+}
+
+/* Action Buttons */
+.action-button {
+  display: inline-block;
+  background-color: #6b5d4c;
+  color: white;
+  font-weight: 600;
+  padding: 0.75em 1.5em;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.action-button:hover {
+  background-color: #584c3f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(107, 93, 76, 0.2);
+}
+
+.action-button:active {
+  transform: translateY(0);
+}
+
 /* Responsive design - IMPROVED FOR CONSISTENCY */
 @media screen and (max-width: 1680px) {
   body, input, select, textarea {
@@ -551,6 +588,10 @@ strong {
   
   .services-list li {
     text-align: center;
+  }
+  
+  .button-container {
+    justify-content: center;
   }
 }
 
@@ -633,6 +674,16 @@ strong {
   .scroll-arrow {
     bottom: 1em;
   }
+  
+  .action-button {
+    width: 100%;
+  }
+  
+  .button-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.8em;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -661,5 +712,9 @@ strong {
   
   .services-list li {
     font-size: 0.95em;
+  }
+  
+  .scroll-arrow {
+    width: 32px;
   }
 }
