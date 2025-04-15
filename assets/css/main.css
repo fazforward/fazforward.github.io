@@ -1,6 +1,4 @@
-/* assets/css/main.css - Combined all CSS files */
-
-/* Base styles from main.css (only keeping what's needed) */
+/* Optimized main.css */
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
 @import url("fontawesome-all.min.css");
 
@@ -21,13 +19,12 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-  line-height: 1;
+  line-height: 1.75em;
   color: #444;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 15pt;
   font-weight: 300;
   letter-spacing: -0.025em;
-  line-height: 1.75em;
   background: white;
   overflow-y: auto !important;
   overflow-x: hidden;
@@ -95,9 +92,9 @@ a:hover {
   opacity: 0;
 }
 
-/* Background - SIMPLIFIED TO SOLID WHITE */
+/* Background */
 #bg {
-  background: white; /* Simple white background */
+  background: white;
   height: 100%;
   left: 0;
   opacity: 1;
@@ -191,11 +188,11 @@ a:hover {
   margin: 1.5em 0 0 0;
 }
 
-/* NEW: Centered icons */
+/* Centered icons */
 .centered-icons {
   display: flex;
   justify-content: center;
-  padding: 0; /* Remove the left padding */
+  padding: 0;
 }
 
 #header nav li {
@@ -214,13 +211,6 @@ a:hover {
 #header nav li:nth-child(1) { animation-delay: 2.5s; }
 #header nav li:nth-child(2) { animation-delay: 2.75s; }
 #header nav li:nth-child(3) { animation-delay: 3s; }
-#header nav li:nth-child(4) { animation-delay: 3.25s; }
-#header nav li:nth-child(5) { animation-delay: 3.5s; }
-#header nav li:nth-child(6) { animation-delay: 3.75s; }
-#header nav li:nth-child(7) { animation-delay: 4s; }
-#header nav li:nth-child(8) { animation-delay: 4.25s; }
-#header nav li:nth-child(9) { animation-delay: 4.5s; }
-#header nav li:nth-child(10) { animation-delay: 4.75s; }
 
 #header nav a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -252,7 +242,6 @@ a:hover {
 #header nav a:hover:before {
   background-color: rgba(200, 200, 200, 0.175);
   color: #888;
-  border: none;
 }
 
 #header nav a:active {
@@ -263,71 +252,46 @@ a:hover {
 #header nav a:active:before {
   background-color: rgba(200, 200, 200, 0.35);
   color: #888;
-  border: none;
 }
 
 #header nav a span {
   display: none;
 }
 
-/* Section layouts - UPDATED FOR CONSISTENT RESPONSIVE BEHAVIOR */
+/* Section layouts */
 .section-fullscreen {
-  min-height: 100vh; /* Use min-height instead of fixed height */
+  min-height: 100vh;
   width: 100%;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centers content vertically */
-  box-sizing: border-box; /* Include padding in the height calculation */
+  justify-content: center;
+  box-sizing: border-box;
 }
 
-/* Light grey section styling */
+/* Section color themes */
+.light-grey-section, .dark-grey-section, .darker-grey-section {
+  padding: 4em 2em;
+  color: #6b5d4c;
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: -0.025em;
+}
+
 .light-grey-section {
   background-color: #f5f5f5;
-  padding: 4em 2em;
-  color: #6b5d4c;
-  font-family: 'Source Sans Pro', sans-serif;
-  letter-spacing: -0.025em;
 }
 
-.light-grey-section .content {
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto 0 10%;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.light-grey-section h1 {
-  font-size: 4.35em;
-  font-weight: 900;
-  letter-spacing: -0.035em;
-  line-height: 1em;
-  margin-bottom: 0.5em;
-  color: #6b5d4c;
-  text-align: left;
-}
-
-.light-grey-section p {
-  font-size: 1.25em;
-  line-height: 1.75em;
-  margin-bottom: 1em;
-  opacity: 0.75;
-}
-
-/* Dark grey section styling */
 .dark-grey-section {
   background-color: #e8e4e0;
-  padding: 4em 2em;
-  color: #6b5d4c;
-  font-family: 'Source Sans Pro', sans-serif;
-  letter-spacing: -0.025em;
 }
 
-.dark-grey-section .content {
+.darker-grey-section {
+  background-color: #d6d0c9;
+}
+
+/* Content containers */
+.content, .content.left-aligned {
   max-width: 800px;
   width: 100%;
   margin: 0 auto 0 10%;
@@ -337,7 +301,8 @@ a:hover {
   justify-content: flex-start;
 }
 
-.dark-grey-section h1 {
+/* Typography for sections */
+.light-grey-section h1, .dark-grey-section h1, .darker-grey-section h1 {
   font-size: 4.35em;
   font-weight: 900;
   letter-spacing: -0.035em;
@@ -347,40 +312,11 @@ a:hover {
   text-align: left;
 }
 
-.dark-grey-section p {
+.light-grey-section p, .dark-grey-section p {
   font-size: 1.25em;
   line-height: 1.75em;
   margin-bottom: 1em;
   opacity: 0.75;
-  text-align: left;
-}
-
-/* Darker grey section styling */
-.darker-grey-section {
-  background-color: #d6d0c9;
-  padding: 4em 2em;
-  color: #6b5d4c;
-  font-family: 'Source Sans Pro', sans-serif;
-  letter-spacing: -0.025em;
-}
-
-.darker-grey-section .content.left-aligned {
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto 0 10%;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.darker-grey-section h1 {
-  font-size: 4.35em;
-  font-weight: 900;
-  letter-spacing: -0.035em;
-  line-height: 1em;
-  margin-bottom: 0.5em;
-  color: #6b5d4c;
   text-align: left;
 }
 
@@ -399,12 +335,12 @@ a:hover {
   opacity: 0.75;
 }
 
-/* Make strong text bolder */
+/* Typography utilities */
 strong {
   font-weight: 900;
 }
 
-/* Scroll arrow animation */
+/* Scroll arrow styling and animation */
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
@@ -417,23 +353,26 @@ strong {
   }
 }
 
-.scroll-arrow {
+/* New container to help center the arrow */
+.scroll-arrow-container {
   position: absolute;
-  left: 50%;
   bottom: 2em;
-  transform: translateX(-50%);
-  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 60px; /* Equal to arrow height */
+}
+
+.scroll-arrow {
   opacity: 0;
   animation: header 1s 3s forwards;
-  width: 40px; /* Set a fixed width for better mobile positioning */
-  margin: 0 auto; /* Center the element */
+  margin: 0 auto;
 }
 
 .scroll-arrow svg {
   animation: bounce 2s infinite;
   cursor: pointer;
-  display: block; /* Make SVG a block element */
-  margin: 0 auto; /* Center SVG within its container */
+  display: block;
 }
 
 /* Footer Section */
@@ -496,7 +435,8 @@ strong {
   min-height: 120px;
 }
 
-.submit-button {
+/* Buttons */
+.submit-button, .action-button {
   background-color: #6b5d4c;
   color: white;
   border: none;
@@ -505,67 +445,51 @@ strong {
   font-weight: 600;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-self: flex-start;
+  transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(107, 93, 76, 0.2);
 }
 
-.submit-button:hover {
+.submit-button {
+  align-self: flex-start;
+}
+
+.submit-button:hover, .action-button:hover {
   background-color: #584c3f;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(107, 93, 76, 0.3);
 }
 
-.submit-button:active {
+.submit-button:active, .action-button:active {
   transform: translateY(0);
   box-shadow: 0 1px 2px rgba(107, 93, 76, 0.2);
-} 
+}
 
-/* Button Container - For horizontal alignment of buttons */
+/* Button Container */
 .button-container {
   display: flex;
   gap: 1em;
   margin: 1.5em 0 0.5em 0;
-  flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+  flex-wrap: wrap;
 }
 
-/* Action Buttons - UPDATED to match submit button style */
+/* Action Buttons styles */
 .action-button {
   display: inline-block;
-  background-color: #7e6d5c; /* Slightly different color */
-  color: white;
-  font-weight: 600;
-  padding: 0.75em 1.5em;
-  border-radius: 4px;
+  background-color: #7e6d5c;
   text-decoration: none;
-  transition: all 0.3s ease;
-  border: none;
-  font-size: 1.1em;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(107, 93, 76, 0.2);
+  border: none;
 }
 
-.action-button:hover {
-  background-color: #6d5c4b;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(107, 93, 76, 0.3);
-}
-
-.action-button:active {
-  transform: translateY(0);
-  box-shadow: 0 1px 2px rgba(107, 93, 76, 0.2);
-}
-
-/* Secondary action button with alternative color */
 .action-button.secondary {
-  background-color: #8a7865; /* Even more different color for variety */
+  background-color: #8a7865;
 }
 
 .action-button.secondary:hover {
   background-color: #796754;
 }
 
-/* ANIMATIONS FOR SECTION CONTENT */
+/* Content animations */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -585,40 +509,17 @@ strong {
   animation: fadeInUp 1s forwards;
 }
 
-/* Sequential animation delays for content elements */
-.content h1.animated {
-  animation-delay: 0.2s;
-}
+/* Sequential animation delays */
+.content h1.animated { animation-delay: 0.2s; }
+.content p.animated:nth-of-type(1) { animation-delay: 0.4s; }
+.content p.animated:nth-of-type(2) { animation-delay: 0.5s; }
+.content p.animated:nth-of-type(3) { animation-delay: 0.6s; }
+.content p.animated:nth-of-type(4) { animation-delay: 0.7s; }
+.content ul.animated { animation-delay: 0.6s; }
+.button-container.animated { animation-delay: 0.8s; }
+.contact-form-container.animated { animation-delay: 0.5s; }
 
-.content p.animated:nth-of-type(1) {
-  animation-delay: 0.4s;
-}
-
-.content p.animated:nth-of-type(2) {
-  animation-delay: 0.5s;
-}
-
-.content p.animated:nth-of-type(3) {
-  animation-delay: 0.6s;
-}
-
-.content p.animated:nth-of-type(4) {
-  animation-delay: 0.7s;
-}
-
-.content ul.animated {
-  animation-delay: 0.6s;
-}
-
-.button-container.animated {
-  animation-delay: 0.8s;
-}
-
-.contact-form-container.animated {
-  animation-delay: 0.5s;
-}
-
-/* Responsive design - IMPROVED FOR CONSISTENCY */
+/* Responsive design */
 @media screen and (max-width: 1680px) {
   body, input, select, textarea {
     font-size: 13pt;
@@ -642,9 +543,7 @@ strong {
     font-size: 3.2em;
   }
   
-  .light-grey-section .content,
-  .dark-grey-section .content,
-  .darker-grey-section .content.left-aligned {
+  .content, .content.left-aligned {
     margin: 0 auto;
     width: 80%;
     text-align: center;
@@ -654,10 +553,7 @@ strong {
   .light-grey-section h1,
   .dark-grey-section h1,
   .darker-grey-section h1,
-  .services-list {
-    text-align: center;
-  }
-  
+  .services-list,
   .services-list li {
     text-align: center;
   }
@@ -678,9 +574,7 @@ strong {
     font-size: 2.8em;
   }
   
-  .light-grey-section .content,
-  .dark-grey-section .content,
-  .darker-grey-section .content.left-aligned {
+  .content, .content.left-aligned {
     width: 90%;
   }
 }
@@ -726,9 +620,7 @@ strong {
     text-align: center;
   }
   
-  .light-grey-section .content,
-  .dark-grey-section .content,
-  .darker-grey-section .content.left-aligned {
+  .content, .content.left-aligned {
     width: 95%;
     margin: 0 auto;
     text-align: center;
@@ -743,14 +635,8 @@ strong {
     align-self: center;
   }
   
-  /* CHANGED: Scroll arrow centered horizontally on mobile */
-  .scroll-arrow {
+  .scroll-arrow-container {
     bottom: 1em;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    margin: 0 auto;
-    position: absolute;
   }
   
   .action-button {
@@ -780,7 +666,6 @@ strong {
   }
 }
 
-/* iPhone SE and other small screens */
 @media screen and (max-width: 375px) {
   .light-grey-section h1,
   .dark-grey-section h1,

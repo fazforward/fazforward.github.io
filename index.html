@@ -27,12 +27,14 @@
 						</nav>
 					</header>
 
-					<!-- Scroll arrow with animation -->
-					<div class="scroll-arrow" onclick="scrollToSection('second-page')">
-						<svg width="40" height="60" viewBox="0 0 40 60" fill="none" stroke="#444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-							<line x1="20" y1="5" x2="20" y2="45"></line>
-							<polyline points="8 33 20 45 32 33"></polyline>
-						</svg>
+					<!-- Scroll arrow with animation - Properly centered -->
+					<div class="scroll-arrow-container">
+						<div class="scroll-arrow" onclick="scrollToSection('second-page')">
+							<svg width="40" height="60" viewBox="0 0 40 60" fill="none" stroke="#444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+								<line x1="20" y1="5" x2="20" y2="45"></line>
+								<polyline points="8 33 20 45 32 33"></polyline>
+							</svg>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -120,27 +122,21 @@
 			
 			// Intersection Observer for scroll animations
 			document.addEventListener('DOMContentLoaded', function() {
-				// IntersectionObserver setup for animation triggers
 				const observer = new IntersectionObserver((entries) => {
 					entries.forEach(entry => {
-						// If element is in viewport
 						if (entry.isIntersecting) {
-							// Add animation class
 							const animatedElements = entry.target.querySelectorAll('.animated');
 							animatedElements.forEach(el => {
 								el.classList.add('fadeInUp');
 							});
-							// Unobserve after animation is triggered
 							observer.unobserve(entry.target);
 						}
 					});
 				}, {
-					threshold: 0.1 // Trigger when 10% of the element is visible
+					threshold: 0.1
 				});
 				
-				// Observe all sections except the first one (which has its own animations)
-				const sections = document.querySelectorAll('#second-page, #third-page, #fourth-page');
-				sections.forEach(section => {
+				document.querySelectorAll('#second-page, #third-page, #fourth-page').forEach(section => {
 					observer.observe(section);
 				});
 			});
