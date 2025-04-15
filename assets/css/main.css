@@ -312,7 +312,7 @@ a:hover {
   text-align: left;
 }
 
-.light-grey-section p, .dark-grey-section p {
+.light-grey-section p, .dark-grey-section p, .darker-grey-section p {
   font-size: 1.25em;
   line-height: 1.75em;
   margin-bottom: 1em;
@@ -353,7 +353,7 @@ strong {
   }
 }
 
-/* New container to help center the arrow */
+/* Container to help center the arrow */
 .scroll-arrow-container {
   position: absolute;
   bottom: 2em;
@@ -470,6 +470,7 @@ strong {
   gap: 1em;
   margin: 1.5em 0 0.5em 0;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 /* Action Buttons styles */
@@ -479,6 +480,8 @@ strong {
   text-decoration: none;
   text-align: center;
   border: none;
+  min-width: 180px;
+  max-width: fit-content;
 }
 
 .action-button.secondary {
@@ -515,6 +518,7 @@ strong {
 .content p.animated:nth-of-type(2) { animation-delay: 0.5s; }
 .content p.animated:nth-of-type(3) { animation-delay: 0.6s; }
 .content p.animated:nth-of-type(4) { animation-delay: 0.7s; }
+.content p.animated:nth-of-type(5) { animation-delay: 0.7s; } /* Added for last paragraph in third section */
 .content ul.animated { animation-delay: 0.6s; }
 .button-container.animated { animation-delay: 0.8s; }
 .contact-form-container.animated { animation-delay: 0.5s; }
@@ -615,7 +619,8 @@ strong {
   }
   
   .light-grey-section p,
-  .dark-grey-section p {
+  .dark-grey-section p,
+  .darker-grey-section p {
     font-size: 1em;
     text-align: center;
   }
@@ -639,14 +644,17 @@ strong {
     bottom: 1em;
   }
   
-  .action-button {
-    width: 100%;
-  }
-  
   .button-container {
     flex-direction: column;
+    align-items: center;
     width: 100%;
     gap: 0.8em;
+  }
+  
+  .action-button {
+    width: auto;
+    min-width: 180px;
+    max-width: 80%;
   }
 }
 
@@ -664,6 +672,14 @@ strong {
   .section-fullscreen {
     padding: 2em 0.75em;
   }
+  
+  .action-button, .submit-button {
+    max-width: 85%;
+  }
+  
+  .scroll-arrow-container {
+    transform: translateX(-8px);
+  }
 }
 
 @media screen and (max-width: 375px) {
@@ -680,97 +696,12 @@ strong {
   .scroll-arrow {
     width: 32px;
   }
-}
-
-/* Update button styles for better mobile display */
-.button-container {
-  display: flex;
-  gap: 1em;
-  margin: 1.5em 0 0.5em 0;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.action-button {
-  display: inline-block;
-  background-color: #7e6d5c;
-  text-decoration: none;
-  text-align: center;
-  border: none;
-  min-width: 180px; /* Set a minimum width instead of stretching full width */
-  max-width: fit-content; /* Prevent extreme stretching */
-}
-
-.action-button.secondary {
-  background-color: #8a7865;
-}
-
-.action-button.secondary:hover {
-  background-color: #796754;
-}
-
-/* Fix the arrow alignment for different screen sizes */
-.scroll-arrow-container {
-  position: absolute;
-  bottom: 2em;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 60px; /* Equal to arrow height */
-}
-
-.scroll-arrow {
-  opacity: 0;
-  animation: header 1s 3s forwards;
-  margin: 0 auto;
-}
-
-/* Responsive updates for mobile */
-@media screen and (max-width: 736px) {
-  .button-container {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 0.8em;
-  }
   
-  .action-button {
-    width: auto; /* Override the 100% width */
-    min-width: 180px;
-    max-width: 80%; /* Cap the maximum width */
-    padding: 0.75em 1.5em;
-  }
-  
-  .submit-button {
-    align-self: center;
-    width: auto;
-    min-width: 180px;
-    max-width: 80%;
-  }
-  
-  /* Fix the arrow offset on mobile */
-  .scroll-arrow-container {
-    bottom: 1em;
-    transform: translateX(-5px); /* Shift slightly left on mobile */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .action-button, .submit-button {
-    max-width: 85%; /* Slightly wider on very small screens */
-  }
-  
-  .scroll-arrow-container {
-    transform: translateX(-8px); /* Shift more to the left on smaller screens */
-  }
-}
-
-@media screen and (max-width: 375px) {
   .action-button, .submit-button {
     max-width: 90%;
-  } 
+  }
   
   .scroll-arrow-container {
-    transform: translateX(-10px); /* Shift even more on very small screens */
+    transform: translateX(-10px);
   }
 }
