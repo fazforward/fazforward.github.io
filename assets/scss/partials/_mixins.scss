@@ -1,0 +1,63 @@
+// Mixins
+@mixin vendor($property, $value) {
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  #{$property}: $value;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} { @content; }
+  @-moz-keyframes #{$name} { @content; }
+  @keyframes #{$name} { @content; }
+}
+
+@mixin animation($value) {
+  -webkit-animation: $value;
+  -moz-animation: $value;
+  animation: $value;
+}
+
+// Common section styles
+@mixin section-heading {
+  font-size: 4.35em;
+  font-weight: $font-weight-bold;
+  letter-spacing: -0.035em;
+  line-height: 1em;
+  margin-bottom: 0.5em;
+  color: $section-text-color;
+  text-align: left;
+}
+
+@mixin section-paragraph {
+  font-size: 1.25em;
+  line-height: $line-height;
+  margin-bottom: 1em;
+  opacity: 0.9;
+  text-align: left;
+}
+
+// Button base style (Placeholder for @extend)
+%button-base {
+  background-color: $btn-color;
+  color: white;
+  border: none;
+  padding: 0.75em 1.5em;
+  font-size: 1.1em;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(88, 71, 56, 0.2);
+  
+  &:hover {
+    background-color: $btn-hover-color;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(88, 71, 56, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(88, 71, 56, 0.2);
+  }
+}

@@ -1,0 +1,113 @@
+/* Wrapper */
+#wrapper {
+  @include animation(wrapper 3s forwards);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+
+/* Background */
+#bg {
+  background: $bg-color;
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/* Overlay */
+#overlay {
+  @include animation(overlay 1.5s 1.5s forwards);
+  background: transparent;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/* Main section (specific to #top) */
+#main {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Section layouts */
+.section-fullscreen {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Section color themes & padding */
+.light-grey-section, 
+.dark-grey-section, 
+.darker-grey-section {
+  padding: 4em 2em;
+  color: $section-text-color;
+  font-family: $font-family;
+  letter-spacing: $letter-spacing;
+  padding-top: 6em; // Add extra padding to account for navbar
+}
+
+.light-grey-section {
+  background-color: $light-grey-bg;
+}
+
+.dark-grey-section {
+  background-color: $dark-grey-bg;
+}
+
+.darker-grey-section {
+  background-color: $darker-grey-bg;
+}
+
+/* Content containers within sections */
+.content, 
+.content.left-aligned { // .left-aligned is for contact section
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto 0 10%; // Default left margin for larger screens
+  text-align: left; // Default text align
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Footer Section specific layout */
+.footer-section {
+  background-color: $footer-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5em 0;
+  width: 100%;
+}
+
+/* Footer */
+#footer {
+  width: 100%;
+  text-align: center;
+  
+  .copyright, 
+  .copyright a {
+    color: $light-text-color;
+  }
+}

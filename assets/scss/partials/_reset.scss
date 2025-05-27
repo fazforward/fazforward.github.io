@@ -1,0 +1,44 @@
+// Reset and basic elements
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, 
+footer, header, nav, section, ol, ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: $line-height; // Uses variable defined in _variables.scss
+  color: $text-color;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  letter-spacing: $letter-spacing;
+  background: $bg-color;
+  overflow-y: auto !important; // Consider if !important is truly necessary
+  overflow-x: hidden;
+  height: auto;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  transition: border-color 0.2s ease-in-out;
+  border-bottom: dotted 1px;
+  color: inherit;
+  outline: 0;
+  text-decoration: none;
+  
+  &:hover {
+    border-color: transparent;
+  }
+}

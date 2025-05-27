@@ -1,0 +1,51 @@
+/* Icon styling (FontAwesome base) */
+.icon {
+  text-decoration: none;
+  position: relative;
+  
+  &:before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    text-transform: none !important;
+    font-family: 'Font Awesome 5 Free'; // Make sure this matches your FontAwesome version/setup
+    font-weight: 400; // Corresponds to 'regular' style
+  }
+  
+  > .label {
+    display: none;
+  }
+  
+  // For Solid style icons
+  &.solid:before, &.fas:before { // .fas is a common class for solid
+    font-weight: 900;
+  }
+  
+  // For Brands style icons
+  &.brands:before, &.fab:before { // .fab is a common class for brands
+    font-family: 'Font Awesome 5 Brands';
+  }
+  // Add .far for regular if needed and not default
+}
+
+/* Typography for sections (general application) */
+.light-grey-section,
+.dark-grey-section,
+.darker-grey-section {
+  h1 {
+    @include section-heading;
+  }
+  
+  p {
+    @include section-paragraph;
+  }
+}
+
+/* Typography utilities */
+strong {
+  font-weight: $font-weight-bold;
+}

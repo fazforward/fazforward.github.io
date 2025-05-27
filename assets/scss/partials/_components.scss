@@ -1,0 +1,313 @@
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: $navbar-bg;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(68, 68, 68, 0.1);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  
+  &.scrolled {
+    background: $navbar-bg-scrolled;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.navbar-brand {
+  .brand-link {
+    font-size: 1.5em;
+    font-weight: $font-weight-bold;
+    color: $navbar-text;
+    text-decoration: none;
+    border: none;
+    
+    &:hover {
+      color: $navbar-hover;
+      border: none;
+    }
+  }
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+  
+  li {
+    margin: 0;
+  }
+  
+  .nav-link {
+    color: $navbar-text;
+    text-decoration: none;
+    font-weight: 500; // Original SCSS didn't specify, 500 is a common value for nav links
+    font-size: 1em;
+    padding: 0.5rem 0;
+    border: none;
+    position: relative;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      color: $navbar-hover;
+      border: none; // Redundant as base 'a' hover removes border
+    }
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -2px; // Adjust if needed based on line-height/padding
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $navbar-hover;
+      transition: width 0.3s ease;
+    }
+    
+    &:hover:after {
+      width: 100%;
+    }
+  }
+}
+
+.navbar-toggle {
+  display: none; // Shown via media query
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  justify-content: space-around;
+  
+  span {
+    width: 100%;
+    height: 3px;
+    background-color: $navbar-text;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+}
+
+/* Header (content within #top section) */
+#header {
+  @include animation(header 1s 2.25s forwards);
+  backface-visibility: hidden;
+  transform: translate3d(0,0,0); // Base state for animation
+  cursor: default;
+  opacity: 0; // Initial state for animation
+  position: relative;
+  text-align: center;
+  width: 90%; // As per original
+  color: $text-color; // Default text color for header content
+  
+  h1 {
+    font-size: 4.35em;
+    font-weight: $font-weight-bold;
+    letter-spacing: -0.035em;
+    line-height: 1em;
+    color: $text-color; // Explicitly set, though inherited
+  }
+  
+  p {
+    font-size: 1.25em;
+    margin: 0.75em 0 0.25em 0;
+    opacity: 0.75;
+    color: $text-color; // Explicitly set
+  }
+  
+  nav {
+    margin: 1.5em 0 0 0;
+    
+    li {
+      @include animation(nav-icons 0.5s ease-in-out forwards);
+      backface-visibility: hidden;
+      transform: translate3d(0,0,0);
+      display: inline-block;
+      height: 5.35em;
+      line-height: 5.885em; // Specific value from original
+      opacity: 0;
+      position: relative;
+      top: 0; // Base position
+      width: 5.35em;
+      
+      // Animation delays from original
+      &:nth-child(1) { animation-delay: 2.5s; }
+      &:nth-child(2) { animation-delay: 2.75s; }
+      &:nth-child(3) { animation-delay: 3s; }
+    }
+    
+    a { // Styles for icon links within header nav
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      -webkit-touch-callout: none;
+      border: 0; // Overrides global 'a' style
+      display: inline-block;
+      color: $text-color; // Ensure icon color
+      
+      &:before { // FontAwesome icon pseudo-element
+        transition: all 0.2s ease-in-out;
+        border-radius: 100%;
+        background-color: transparent; // Default state
+        border: none; // Ensure no border from global 'a'
+        display: block;
+        font-size: 1.75em; // Icon size
+        height: 2.5em;    // Clickable area height
+        line-height: 2.5em; // Vertically center icon
+        position: relative;
+        text-align: center;
+        top: 0;
+        width: 2.5em;     // Clickable area width
+      }
+      
+      &:hover {
+        font-size: 1.1em; // Icon container scales slightly
+        border: none; // Ensure no border on hover
+        &:before {
+          background-color: rgba(200, 200, 200, 0.175); // Subtle bg on hover
+          color: #888; // Icon color change on hover
+        }
+      }
+      
+      &:active {
+        font-size: 0.95em; // Slight shrink on active
+        background: none; // Ensure no bg from other states
+        border: none; // Ensure no border on active
+        &:before {
+          background-color: rgba(200, 200, 200, 0.35); // Darker bg on active
+          color: #888; // Keep icon color consistent with hover
+        }
+      }
+      
+      span { // The .label text
+        display: none;
+      }
+    }
+  }
+}
+
+/* Centered icons helper (used in #header nav) */
+.centered-icons {
+  display: flex;
+  justify-content: center;
+  padding: 0; // Resets ul/ol default padding
+}
+
+/* Scroll arrow styling and animation */
+.scroll-arrow-container {
+  position: absolute;
+  bottom: 2em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 60px; // Original value, adjust if arrow looks off
+}
+
+.scroll-arrow {
+  opacity: 0; // Initial state for animation
+  animation: header 1s 3s forwards; // Reuse header animation, delayed
+  margin: 0 auto; // Center if container is wider
+  
+  svg {
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    display: block; // Ensure it behaves as a block for margin auto
+  }
+}
+
+/* Services list styling */
+.services-list {
+  margin: 0 0 1.5em 0;
+  padding: 0; // Reset ul default padding
+  list-style-position: inside; // If you were using list-style-type
+  text-align: left; // Align text to the left within the list container
+  
+  li {
+    font-size: 1.1em;
+    line-height: 1.65em;
+    margin-bottom: 0.75em;
+    opacity: 0.9;
+    // Text alignment within li will be inherited or can be set here
+  }
+}
+
+/* Contact form styles */
+.contact-form-container {
+  width: 100%;
+  max-width: 600px; // Limit form width
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em; // Space between label and input
+  
+  label {
+    font-weight: 600; // Semi-bold labels
+    font-size: 1.1em;
+    color: $section-text-color; // Ensure visibility against section bg
+  }
+  
+  input,
+  textarea {
+    padding: 0.75em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: $font-family; // Inherit main font
+    font-size: 1em; // Consistent font size with paragraphs
+    background-color: white; // Ensure readable against dark backgrounds
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+}
+
+/* Buttons */
+.submit-button {
+  @extend %button-base; // Use the placeholder for common styles
+  align-self: flex-start; // For forms where it's the only button
+}
+
+.action-button {
+  @extend %button-base;
+  display: inline-block; // Allows margin/padding and fits content
+  background-color: $action-btn-color;
+  text-decoration: none; // Remove underline from 'a' tag
+  text-align: center;
+  border: none; // From %button-base
+  min-width: 180px;
+  max-width: fit-content; // Allow button to grow with text but not exceed container
+  
+  &.secondary {
+    background-color: $action-btn-secondary;
+    
+    &:hover {
+      background-color: $action-btn-secondary-hover;
+    }
+  }
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  gap: 1em;
+  margin: 1.5em 0 0.5em 0;
+  flex-wrap: wrap; // Allow buttons to wrap on smaller screens
+  justify-content: flex-start; // Default alignment
+}

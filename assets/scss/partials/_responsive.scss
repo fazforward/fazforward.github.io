@@ -1,0 +1,295 @@
+/* Responsive design adjustments */
+
+// Extra Large Devices
+@media screen and (max-width: $breakpoint-xlarge) { // Up to 1680px
+  body, input, select, textarea { // Global font size adjustment
+    font-size: 13pt;
+  }
+  
+  .light-grey-section,
+  .dark-grey-section,
+  .darker-grey-section {
+    h1 { // Adjust section headings
+      font-size: 3.8em;
+    }
+  }
+}
+
+// Large Devices
+@media screen and (max-width: $breakpoint-large) { // Up to 1280px
+  body, input, select, textarea {
+    font-size: 12pt;
+  }
+  
+  .light-grey-section,
+  .dark-grey-section,
+  .darker-grey-section {
+    h1 {
+      font-size: 3.2em;
+    }
+  }
+  
+  // Center content in sections for tablets and below
+  .content, .content.left-aligned { // .left-aligned also gets centered on smaller screens
+    margin: 0 auto; // Center block
+    width: 80%;     // Use more screen width
+    text-align: center; // Center inline content like text
+    align-items: center; // Center flex items (like button containers if they become flex column)
+  }
+  
+  .light-grey-section,
+  .dark-grey-section,
+  .darker-grey-section {
+    h1, // Center section headings
+    p,  // Center paragraphs within these sections
+    .services-list,
+    .services-list li { // Center list items text
+      text-align: center;
+    }
+  }
+  
+  .button-container {
+    justify-content: center; // Center buttons within their container
+  }
+}
+
+// Medium Devices (Tablets)
+@media screen and (max-width: $breakpoint-medium) { // Up to 980px
+  .navbar {
+    padding: 0.75rem 1.5rem; // Reduce navbar padding
+  }
+  
+  .navbar-nav { // Stack nav items for mobile menu
+    display: none; // Hidden by default, shown when .mobile-menu-open
+    position: absolute;
+    top: 100%; // Position below navbar
+    left: 0;
+    right: 0;
+    background: $navbar-mobile-bg;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    gap: 0; // Remove gap for full-width items
+    
+    li {
+      margin: 0.5rem 0; // Add some vertical spacing
+    }
+    
+    .nav-link {
+      display: block; // Make links take full width
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(68, 68, 68, 0.1); // Separator
+      
+      &:last-child {
+        border-bottom: none; // No border for the last item
+      }
+      // &:after hover effect might be unwanted on touch, consider removing or adjusting for mobile
+    }
+  }
+  
+  .navbar-toggle { // Show hamburger icon
+    display: flex;
+  }
+  
+  .navbar.mobile-menu-open { // When mobile menu is active
+    .navbar-nav {
+      display: flex; // Show the nav items
+    }
+    
+    .navbar-toggle { // Hamburger to 'X' animation
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px); // Slight adjustment for visual centering
+      }
+    }
+  }
+  
+  .section-fullscreen { // Adjust padding for smaller screens
+    padding: 3em 1.5em;
+    padding-top: 5em; // Account for fixed navbar
+  }
+  
+  .light-grey-section,
+  .dark-grey-section,
+  .darker-grey-section {
+    h1 {
+      font-size: 2.8em;
+    }
+    padding-top: 5em; // Consistent top padding
+  }
+  
+  .content, .content.left-aligned {
+    width: 90%; // Use more width
+  }
+}
+
+// Small Devices (Landscape Phones, larger portrait phones)
+@media screen and (max-width: $breakpoint-small) { // Up to 736px
+  body {
+    min-width: 320px; // Ensure a minimum usable width
+    font-size: 11pt;
+  }
+  
+  .navbar {
+    padding: 0.5rem 1rem; // Further reduce navbar padding
+    
+    .navbar-brand .brand-link {
+      font-size: 1.2em; // Smaller brand text
+    }
+  }
+  
+  .section-fullscreen {
+    padding: 2em 1em;
+    padding-top: 4em; // Adjust for potentially smaller navbar height impact
+  }
+  
+  #header { // Adjustments for the main landing page header
+    h1 {
+      font-size: 2.5em;
+    }
+    p {
+      font-size: 1em;
+    }
+    nav { // Reduce size/spacing of social icons
+      font-size: 1em; // This will scale down the 'em' based units in its children 'a'
+      // Hover/active states might not need scaling if base 'a' font-size is targeted by them.
+      // Original SCSS had specific hover/active font-size overrides for 'a',
+      // which are now handled by scaling the parent nav font-size.
+      a {
+        &:hover, &:active {
+            font-size: 1em; // Prevent upscaling from base icon link style if it occurs
+        }
+      }
+    }
+  }
+  
+  .light-grey-section,
+  .dark-grey-section,
+  .darker-grey-section {
+    h1 {
+      font-size: 2.2em;
+      text-align: center; // Ensure heading is centered if not already by .content
+      margin-bottom: 0.7em;
+    }
+    p {
+      font-size: 1em;
+      text-align: center; // Ensure paragraph is centered
+    }
+    padding-top: 4em; // Consistent top padding
+  }
+  
+  .content, .content.left-aligned {
+    width: 95%; // Nearly full width
+    margin: 0 auto; // Ensure centered
+    text-align: center; // Content text centered
+    align-items: center; // Flex items centered
+  }
+  
+  .services-list {
+    li {
+      text-align: center; // List items centered
+    }
+  }
+  
+  .submit-button {
+    align-self: center; // Center submit button in form
+  }
+  
+  .scroll-arrow-container {
+    bottom: 1em; // Bring scroll arrow up a bit
+  }
+  
+  .button-container { // Stack buttons vertically and center them
+    flex-direction: column;
+    align-items: center;
+    width: 100%; // Take full width to center content
+    gap: 0.8em;
+  }
+  
+  .action-button { // Make action buttons take more width but not necessarily full
+    width: auto; // Let padding define width
+    min-width: 180px; // Keep a minimum touch-friendly width
+    max-width: 80%; // Limit max width
+  }
+}
+
+// Extra Small Devices (Portrait Phones)
+@media screen and (max-width: $breakpoint-xsmall) { // Up to 480px
+  .navbar {
+    .navbar-brand .brand-link {
+      font-size: 1.1em; // Even smaller brand text
+    }
+  }
+  
+  #header {
+    nav { // Ensure social icons don't overflow
+      padding: 0 1em; // Add some horizontal padding if icons get too close to edge
+    }
+  }
+  
+  .light-grey-section,
+  .dark-grey-section,
+  .darker-grey-section {
+    h1 {
+      font-size: 2em; // Further reduce heading size
+    }
+  }
+  
+  .section-fullscreen {
+    padding: 2em 0.75em; // Reduce side padding
+    padding-top: 4em;
+  }
+  
+  .action-button, .submit-button { // Allow buttons to be slightly wider
+    max-width: 85%;
+  }
+
+  .scroll-arrow-container { // Small adjustment for scroll arrow visual centering on small screens
+    // The transform from original SCSS might be to counteract some other subtle layout shift.
+    // Test if this is still needed. If the arrow svg itself is centered, this might not be necessary.
+    // transform: translateX(-8px); // Original value
+  }
+}
+
+// XXSmall Devices (Smaller Portrait Phones)
+@media screen and (max-width: $breakpoint-xxsmall) { // Up to 375px
+  .navbar {
+    .navbar-brand .brand-link {
+      font-size: 1em; // Smallest brand text
+    }
+  }
+  
+  .light-grey-section,
+  .dark-grey-section,
+  .darker-grey-section {
+    h1 {
+      font-size: 1.8em;
+    }
+  }
+  
+  .services-list {
+    li {
+      font-size: 0.95em; // Slightly smaller list item text
+    }
+  }
+  
+  .scroll-arrow { // If the arrow itself needs to be smaller
+    svg { // Target the SVG directly if its attributes define size
+        width: 32px; // Original value was 40, this makes it smaller
+        height: auto; // Maintain aspect ratio
+    }
+  }
+  
+  .action-button, .submit-button {
+    max-width: 90%; // Allow buttons to use most of the width
+  }
+
+  .scroll-arrow-container {
+     // transform: translateX(-10px); // Original value for very small screens
+  }
+}

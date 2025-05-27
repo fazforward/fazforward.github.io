@@ -1,0 +1,37 @@
+// Variables
+$font-family: 'Source Sans Pro', sans-serif;
+$font-size-base: 15pt;
+$font-weight-normal: 300;
+$font-weight-bold: 900;
+$letter-spacing: -0.025em;
+$line-height: 1.75em;
+
+// Colors
+$text-color: #444;
+$light-text-color: #e8e4e0;
+$section-text-color: #3d352d;
+$bg-color: white;
+$light-grey-bg: #f5f5f5;
+$dark-grey-bg: #e8e4e0;
+$darker-grey-bg: #d6d0c9;
+$footer-bg: #463226;
+$btn-color: #584738;
+$btn-hover-color: #473a2e;
+$action-btn-color: #5d493b;
+$action-btn-secondary: #6c5745;
+$action-btn-secondary-hover: #5a4838;
+
+// Navbar specific colors
+$navbar-bg: rgba(255, 255, 255, 0.95);
+$navbar-bg-scrolled: rgba(255, 255, 255, 0.98);
+$navbar-text: #444;
+$navbar-hover: #5d493b;
+$navbar-mobile-bg: rgba(255, 255, 255, 0.98);
+
+// Breakpoints
+$breakpoint-xlarge: 1680px;
+$breakpoint-large: 1280px;
+$breakpoint-medium: 980px;
+$breakpoint-small: 736px;
+$breakpoint-xsmall: 480px;
+$breakpoint-xxsmall: 375px;
