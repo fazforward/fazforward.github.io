@@ -1,8 +1,13 @@
+.
+./assets
+./assets/css
 ./assets/css/fontawesome-all.min.css
 ./assets/css/main.css
 ./assets/css/main.css.map
 ./assets/css/noscript.css
+./assets/scss
 ./assets/scss/main.scss
+./assets/webfonts
 ./assets/webfonts/fa-brands-400.eot
 ./assets/webfonts/fa-brands-400.svg
 ./assets/webfonts/fa-brands-400.ttf
@@ -19,6 +24,7 @@
 ./assets/webfonts/fa-solid-900.woff
 ./assets/webfonts/fa-solid-900.woff2
 ./filelist.txt
+./generate-structure.bat.bat
 ./index.html
 ./package.json
 ./README.txt

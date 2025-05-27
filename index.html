@@ -8,6 +8,26 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
+		<!-- Sticky Navigation Bar -->
+		<nav id="navbar" class="navbar">
+			<div class="navbar-brand">
+				<a href="#top" class="brand-link">Faz Forward</a>
+			</div>
+			<div class="navbar-menu">
+				<ul class="navbar-nav">
+					<li><a href="#top" class="nav-link">Home</a></li>
+					<li><a href="#second-page" class="nav-link">About</a></li>
+					<li><a href="#third-page" class="nav-link">Services</a></li>
+					<li><a href="#fourth-page" class="nav-link">Contact</a></li>
+				</ul>
+			</div>
+			<div class="navbar-toggle" id="navbar-toggle">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</nav>
+
 		<!-- First Section (Original landing page) -->
 		<section id="top" class="section-fullscreen">
 			<div id="wrapper">
@@ -119,6 +139,30 @@
 					behavior: 'smooth'
 				});
 			}
+			
+			// Navbar scroll effect
+			window.addEventListener('scroll', function() {
+				const navbar = document.getElementById('navbar');
+				if (window.scrollY > 100) {
+					navbar.classList.add('scrolled');
+				} else {
+					navbar.classList.remove('scrolled');
+				}
+			});
+			
+			// Mobile menu toggle
+			document.getElementById('navbar-toggle').addEventListener('click', function() {
+				const navbar = document.getElementById('navbar');
+				navbar.classList.toggle('mobile-menu-open');
+			});
+			
+			// Close mobile menu when clicking on nav links
+			document.querySelectorAll('.nav-link').forEach(link => {
+				link.addEventListener('click', function() {
+					const navbar = document.getElementById('navbar');
+					navbar.classList.remove('mobile-menu-open');
+				});
+			});
 			
 			// Intersection Observer for scroll animations
 			document.addEventListener('DOMContentLoaded', function() {

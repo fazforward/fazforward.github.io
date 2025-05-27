@@ -25,6 +25,13 @@ $action-btn-color: #5d493b;
 $action-btn-secondary: #6c5745;
 $action-btn-secondary-hover: #5a4838;
 
+// Navbar specific colors
+$navbar-bg: rgba(255, 255, 255, 0.95);
+$navbar-bg-scrolled: rgba(255, 255, 255, 0.98);
+$navbar-text: #444;
+$navbar-hover: #5d493b;
+$navbar-mobile-bg: rgba(255, 255, 255, 0.98);
+
 // Breakpoints
 $breakpoint-xlarge: 1680px;
 $breakpoint-large: 1280px;
@@ -139,6 +146,106 @@ a {
   
   &:hover {
     border-color: transparent;
+  }
+}
+
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: $navbar-bg;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(68, 68, 68, 0.1);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  
+  &.scrolled {
+    background: $navbar-bg-scrolled;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.navbar-brand {
+  .brand-link {
+    font-size: 1.5em;
+    font-weight: $font-weight-bold;
+    color: $navbar-text;
+    text-decoration: none;
+    border: none;
+    
+    &:hover {
+      color: $navbar-hover;
+      border: none;
+    }
+  }
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+  
+  li {
+    margin: 0;
+  }
+  
+  .nav-link {
+    color: $navbar-text;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1em;
+    padding: 0.5rem 0;
+    border: none;
+    position: relative;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      color: $navbar-hover;
+      border: none;
+    }
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $navbar-hover;
+      transition: width 0.3s ease;
+    }
+    
+    &:hover:after {
+      width: 100%;
+    }
+  }
+}
+
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  justify-content: space-around;
+  
+  span {
+    width: 100%;
+    height: 3px;
+    background-color: $navbar-text;
+    transition: all 0.3s ease;
+    transform-origin: center;
   }
 }
 
@@ -391,6 +498,7 @@ a {
   color: $section-text-color;
   font-family: $font-family;
   letter-spacing: $letter-spacing;
+  padding-top: 6em; // Add extra padding to account for navbar
 }
 
 .light-grey-section {
@@ -639,8 +747,64 @@ strong {
 }
 
 @media screen and (max-width: $breakpoint-medium) {
+  .navbar {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .navbar-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: $navbar-mobile-bg;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    gap: 0;
+    
+    li {
+      margin: 0.5rem 0;
+    }
+    
+    .nav-link {
+      display: block;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(68, 68, 68, 0.1);
+      
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+  
+  .navbar-toggle {
+    display: flex;
+  }
+  
+  .navbar.mobile-menu-open {
+    .navbar-nav {
+      display: flex;
+    }
+    
+    .navbar-toggle {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+      
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+    }
+  }
+  
   .section-fullscreen {
     padding: 3em 1.5em;
+    padding-top: 5em;
   }
   
   .light-grey-section,
@@ -649,6 +813,8 @@ strong {
     h1 {
       font-size: 2.8em;
     }
+    
+    padding-top: 5em;
   }
   
   .content, .content.left-aligned {
@@ -662,8 +828,17 @@ strong {
     font-size: 11pt;
   }
   
+  .navbar {
+    padding: 0.5rem 1rem;
+    
+    .navbar-brand .brand-link {
+      font-size: 1.2em;
+    }
+  }
+  
   .section-fullscreen {
     padding: 2em 1em;
+    padding-top: 4em;
   }
   
   #header {
@@ -700,6 +875,8 @@ strong {
       font-size: 1em;
       text-align: center;
     }
+    
+    padding-top: 4em;
   }
   
   .content, .content.left-aligned {
@@ -738,6 +915,12 @@ strong {
 }
 
 @media screen and (max-width: $breakpoint-xsmall) {
+  .navbar {
+    .navbar-brand .brand-link {
+      font-size: 1.1em;
+    }
+  }
+  
   #header {
     nav {
       padding: 0 1em;
@@ -754,6 +937,7 @@ strong {
   
   .section-fullscreen {
     padding: 2em 0.75em;
+    padding-top: 4em;
   }
   
   .action-button, .submit-button {
@@ -766,6 +950,12 @@ strong {
 }
 
 @media screen and (max-width: $breakpoint-xxsmall) {
+  .navbar {
+    .navbar-brand .brand-link {
+      font-size: 1em;
+    }
+  }
+  
   .light-grey-section,
   .dark-grey-section,
   .darker-grey-section {

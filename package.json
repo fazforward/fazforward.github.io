@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass assets/scss/main.scss:assets/css/main.css --style compressed",
-    "structure": "bash -c \"find . -type f | grep -vE '/(\\.|node_modules|\\.git)' > structure.txt\""
+    "structure": "bash -c \"find . -type f | grep -vE '/(\\.|node_modules|\\.git)' > structure.txt\"",
+    "watch": "sass --watch assets/scss/main.scss assets/css/main.css"
+    
   },
   "repository": {
     "type": "git",
