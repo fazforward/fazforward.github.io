@@ -23,7 +23,23 @@
   }
 }
 
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  
+  .brand-logo {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+  }
+  
   .brand-link {
     font-size: 1.5em;
     font-weight: $font-weight-bold;
@@ -52,7 +68,7 @@
   .nav-link {
     color: $navbar-text;
     text-decoration: none;
-    font-weight: 500; // Original SCSS didn't specify, 500 is a common value for nav links
+    font-weight: 500;
     font-size: 1em;
     padding: 0.5rem 0;
     border: none;
@@ -61,13 +77,13 @@
     
     &:hover {
       color: $navbar-hover;
-      border: none; // Redundant as base 'a' hover removes border
+      border: none;
     }
     
     &:after {
       content: '';
       position: absolute;
-      bottom: -2px; // Adjust if needed based on line-height/padding
+      bottom: -2px;
       left: 0;
       width: 0;
       height: 2px;
@@ -82,7 +98,7 @@
 }
 
 .navbar-toggle {
-  display: none; // Shown via media query
+  display: none;
   flex-direction: column;
   cursor: pointer;
   width: 30px;
@@ -98,31 +114,99 @@
   }
 }
 
+/* Mobile Navbar Styles */
+@media screen and (max-width: $breakpoint-medium) {
+  .navbar {
+    padding: 1rem;
+    
+    .navbar-left {
+      gap: 1rem;
+    }
+    
+    .navbar-brand {
+      .brand-logo {
+        height: 28px;
+      }
+      
+      .brand-link {
+        font-size: 1.3em;
+      }
+    }
+  }
+  
+  .navbar-toggle {
+    display: flex;
+  }
+  
+  .navbar-menu {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: $navbar-mobile-bg;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(68, 68, 68, 0.1);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+  
+  .navbar.mobile-menu-open .navbar-menu {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .navbar-nav {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0;
+    
+    li {
+      border-bottom: 1px solid rgba(68, 68, 68, 0.1);
+      
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    
+    .nav-link {
+      display: block;
+      padding: 1rem 0;
+      font-size: 1.1em;
+    }
+  }
+}
+
 /* Header (content within #top section) */
 #header {
   @include animation(header 1s 2.25s forwards);
   backface-visibility: hidden;
-  transform: translate3d(0,0,0); // Base state for animation
+  transform: translate3d(0,0,0);
   cursor: default;
-  opacity: 0; // Initial state for animation
+  opacity: 0;
   position: relative;
   text-align: center;
-  width: 90%; // As per original
-  color: $text-color; // Default text color for header content
+  width: 90%;
+  color: $text-color;
   
   h1 {
     font-size: 4.35em;
     font-weight: $font-weight-bold;
     letter-spacing: -0.035em;
     line-height: 1em;
-    color: $text-color; // Explicitly set, though inherited
+    color: $text-color;
   }
   
   p {
     font-size: 1.25em;
     margin: 0.75em 0 0.25em 0;
     opacity: 0.75;
-    color: $text-color; // Explicitly set
+    color: $text-color;
   }
   
   nav {
@@ -134,60 +218,59 @@
       transform: translate3d(0,0,0);
       display: inline-block;
       height: 5.35em;
-      line-height: 5.885em; // Specific value from original
+      line-height: 5.885em;
       opacity: 0;
       position: relative;
-      top: 0; // Base position
+      top: 0;
       width: 5.35em;
       
-      // Animation delays from original
       &:nth-child(1) { animation-delay: 2.5s; }
       &:nth-child(2) { animation-delay: 2.75s; }
       &:nth-child(3) { animation-delay: 3s; }
     }
     
-    a { // Styles for icon links within header nav
+    a {
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       -webkit-touch-callout: none;
-      border: 0; // Overrides global 'a' style
+      border: 0;
       display: inline-block;
-      color: $text-color; // Ensure icon color
+      color: $text-color;
       
-      &:before { // FontAwesome icon pseudo-element
+      &:before {
         transition: all 0.2s ease-in-out;
         border-radius: 100%;
-        background-color: transparent; // Default state
-        border: none; // Ensure no border from global 'a'
+        background-color: transparent;
+        border: none;
         display: block;
-        font-size: 1.75em; // Icon size
-        height: 2.5em;    // Clickable area height
-        line-height: 2.5em; // Vertically center icon
+        font-size: 1.75em;
+        height: 2.5em;
+        line-height: 2.5em;
         position: relative;
         text-align: center;
         top: 0;
-        width: 2.5em;     // Clickable area width
+        width: 2.5em;
       }
       
       &:hover {
-        font-size: 1.1em; // Icon container scales slightly
-        border: none; // Ensure no border on hover
+        font-size: 1.1em;
+        border: none;
         &:before {
-          background-color: rgba(200, 200, 200, 0.175); // Subtle bg on hover
-          color: #888; // Icon color change on hover
+          background-color: rgba(200, 200, 200, 0.175);
+          color: #888;
         }
       }
       
       &:active {
-        font-size: 0.95em; // Slight shrink on active
-        background: none; // Ensure no bg from other states
-        border: none; // Ensure no border on active
+        font-size: 0.95em;
+        background: none;
+        border: none;
         &:before {
-          background-color: rgba(200, 200, 200, 0.35); // Darker bg on active
-          color: #888; // Keep icon color consistent with hover
+          background-color: rgba(200, 200, 200, 0.35);
+          color: #888;
         }
       }
       
-      span { // The .label text
+      span {
         display: none;
       }
     }
@@ -198,7 +281,7 @@
 .centered-icons {
   display: flex;
   justify-content: center;
-  padding: 0; // Resets ul/ol default padding
+  padding: 0;
 }
 
 /* Scroll arrow styling and animation */
@@ -208,41 +291,40 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-bottom: 60px; // Original value, adjust if arrow looks off
+  padding-bottom: 60px;
 }
 
 .scroll-arrow {
-  opacity: 0; // Initial state for animation
-  animation: header 1s 3s forwards; // Reuse header animation, delayed
-  margin: 0 auto; // Center if container is wider
+  opacity: 0;
+  animation: header 1s 3s forwards;
+  margin: 0 auto;
   
   svg {
     animation: bounce 2s infinite;
     cursor: pointer;
-    display: block; // Ensure it behaves as a block for margin auto
+    display: block;
   }
 }
 
 /* Services list styling */
 .services-list {
   margin: 0 0 1.5em 0;
-  padding: 0; // Reset ul default padding
-  list-style-position: inside; // If you were using list-style-type
-  text-align: left; // Align text to the left within the list container
+  padding: 0;
+  list-style-position: inside;
+  text-align: left;
   
   li {
     font-size: 1.1em;
     line-height: 1.65em;
     margin-bottom: 0.75em;
     opacity: 0.9;
-    // Text alignment within li will be inherited or can be set here
   }
 }
 
 /* Contact form styles */
 .contact-form-container {
   width: 100%;
-  max-width: 600px; // Limit form width
+  max-width: 600px;
 }
 
 .contact-form {
@@ -254,12 +336,12 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5em; // Space between label and input
+  gap: 0.5em;
   
   label {
-    font-weight: 600; // Semi-bold labels
+    font-weight: 600;
     font-size: 1.1em;
-    color: $section-text-color; // Ensure visibility against section bg
+    color: $section-text-color;
   }
   
   input,
@@ -267,9 +349,9 @@
     padding: 0.75em;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-family: $font-family; // Inherit main font
-    font-size: 1em; // Consistent font size with paragraphs
-    background-color: white; // Ensure readable against dark backgrounds
+    font-family: $font-family;
+    font-size: 1em;
+    background-color: white;
   }
   
   textarea {
@@ -280,19 +362,19 @@
 
 /* Buttons */
 .submit-button {
-  @extend %button-base; // Use the placeholder for common styles
-  align-self: flex-start; // For forms where it's the only button
+  @extend %button-base;
+  align-self: flex-start;
 }
 
 .action-button {
   @extend %button-base;
-  display: inline-block; // Allows margin/padding and fits content
+  display: inline-block;
   background-color: $action-btn-color;
-  text-decoration: none; // Remove underline from 'a' tag
+  text-decoration: none;
   text-align: center;
-  border: none; // From %button-base
+  border: none;
   min-width: 180px;
-  max-width: fit-content; // Allow button to grow with text but not exceed container
+  max-width: fit-content;
   
   &.secondary {
     background-color: $action-btn-secondary;
@@ -308,6 +390,6 @@
   display: flex;
   gap: 1em;
   margin: 1.5em 0 0.5em 0;
-  flex-wrap: wrap; // Allow buttons to wrap on smaller screens
-  justify-content: flex-start; // Default alignment
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
