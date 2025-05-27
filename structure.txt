@@ -5,6 +5,8 @@
 ./assets/css/main.css
 ./assets/css/main.css.map
 ./assets/css/noscript.css
+./assets/images
+./assets/images/logo.png
 ./assets/scss
 ./assets/scss/main.scss
 ./assets/webfonts
@@ -24,7 +26,7 @@
 ./assets/webfonts/fa-solid-900.woff
 ./assets/webfonts/fa-solid-900.woff2
 ./filelist.txt
-./generate-structure.bat.bat
+./generate-structure.bat
 ./index.html
 ./package.json
 ./README.txt
