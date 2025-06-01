@@ -1,0 +1,102 @@
+/* Media Page Specific Styles */
+
+/* Active nav link styling */
+.nav-link.active {
+    color: #5d493b !important;
+    font-weight: 600;
+}
+
+.nav-link.active:after {
+    width: 100% !important;
+}
+
+/* Media grid layout */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.media-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.media-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.media-item h3 {
+    color: #3d352d;
+    font-size: 1.5em;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.media-item p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Media page hero adjustments */
+#media-hero #header h1 {
+    font-size: 3.5em;
+    margin-bottom: 0.5rem;
+}
+
+#media-hero #header p {
+    font-size: 1.2em;
+    margin-bottom: 1rem;
+}
+
+/* Responsive adjustments for media page */
+@media screen and (max-width: 980px) {
+    .media-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .media-item {
+        padding: 1.5rem;
+    }
+    
+    #media-hero #header h1 {
+        font-size: 2.8em;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    .media-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .media-item {
+        padding: 1.25rem;
+    }
+    
+    #media-hero #header h1 {
+        font-size: 2.2em;
+    }
+    
+    #media-hero #header p {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #media-hero #header h1 {
+        font-size: 1.8em;
+    }
+    
+    #media-hero #header p {
+        font-size: 1em;
+    }
+}
