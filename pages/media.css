@@ -45,17 +45,6 @@
     margin-bottom: 1.5rem;
 }
 
-/* Media page hero adjustments */
-#media-hero #header h1 {
-    font-size: 3.5em;
-    margin-bottom: 0.5rem;
-}
-
-#media-hero #header p {
-    font-size: 1.2em;
-    margin-bottom: 1rem;
-}
-
 /* Responsive adjustments for media page */
 @media screen and (max-width: 980px) {
     .media-grid {
@@ -65,10 +54,6 @@
     
     .media-item {
         padding: 1.5rem;
-    }
-    
-    #media-hero #header h1 {
-        font-size: 2.8em;
     }
 }
 
@@ -81,22 +66,10 @@
     .media-item {
         padding: 1.25rem;
     }
-    
-    #media-hero #header h1 {
-        font-size: 2.2em;
-    }
-    
-    #media-hero #header p {
-        font-size: 1.1em;
-    }
 }
 
 @media screen and (max-width: 480px) {
-    #media-hero #header h1 {
-        font-size: 1.8em;
-    }
-    
-    #media-hero #header p {
-        font-size: 1em;
+    .media-item {
+        padding: 1rem;
     }
 }

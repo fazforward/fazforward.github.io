@@ -10,7 +10,7 @@
 	</head>
 	<body class="is-preload">
 
-		<nav id="navbar" class="navbar">
+		<nav id="navbar" class="navbar scrolled">
 			<div class="navbar-left">
 				<div class="navbar-brand">
 					<img src="../assets/images/logo.png" alt="Faz Forward Logo" class="brand-logo">
@@ -31,35 +31,6 @@
 			</div>
 		</nav>
 
-		<section id="media-hero" class="section-fullscreen">
-			<div id="wrapper">
-				<div id="bg"></div>
-				<div id="overlay"></div>
-				<div id="main">
-					<header id="header">
-						<h1>This is the media page</h1>
-						<p>Welcome to my media showcase. Here you'll find my creative work and content.</p>
-						<nav>
-							<ul class="centered-icons">
-								<li><a href="https://www.youtube.com/@forwardfaz" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
-								<li><a href="https://medium.com/@forwardfaz" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
-								<li><a href="https://github.com/fazforward" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							</ul>
-						</nav>
-					</header>
-
-					<div class="scroll-arrow-container">
-						<div class="scroll-arrow" onclick="scrollToSection('media-content')">
-							<svg width="40" height="60" viewBox="0 0 40 60" fill="none" stroke="#444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-								<line x1="20" y1="5" x2="20" y2="45"></line>
-								<polyline points="8 33 20 45 32 33"></polyline>
-							</svg>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
 		<section id="media-content" class="section-fullscreen light-grey-section">
 			<div class="content">
 				<h1 class="animated">My Media Portfolio</h1>
@@ -69,7 +40,7 @@
 					<div class="media-item">
 						<h3>Video Content</h3>
 						<p>Check out my YouTube channel for video content and tutorials.</p>
-						<a href="https://www.youtube.com/@forwardfaz" class="action-button" target="_blank">Visit YouTube</a>
+						<a href="https://www.youtube.com/@fazforward.channel" class="action-button" target="_blank">Visit YouTube</a>
 					</div>
 					
 					<div class="media-item">
@@ -96,23 +67,6 @@
 		<script src="media.js"></script>
 		<script>
 			window.onload = function() { document.body.classList.remove('is-preload'); }
-			
-			// Smooth scrolling function
-			function scrollToSection(id) {
-				document.getElementById(id).scrollIntoView({
-					behavior: 'smooth'
-				});
-			}
-			
-			// Navbar scroll effect
-			window.addEventListener('scroll', function() {
-				const navbar = document.getElementById('navbar');
-				if (window.scrollY > 100) {
-					navbar.classList.add('scrolled');
-				} else {
-					navbar.classList.remove('scrolled');
-				}
-			});
 			
 			// Mobile menu toggle
 			document.getElementById('navbar-toggle').addEventListener('click', function() {
