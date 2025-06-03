@@ -1,9 +1,15 @@
+.
+./assets
+./assets/css
 ./assets/css/fontawesome-all.min.css
 ./assets/css/main.css
 ./assets/css/main.css.map
 ./assets/css/noscript.css
+./assets/images
 ./assets/images/logo.png
+./assets/scss
 ./assets/scss/main.scss
+./assets/scss/partials
 ./assets/scss/partials/_animations.scss
 ./assets/scss/partials/_base.scss
 ./assets/scss/partials/_components.scss
@@ -12,6 +18,7 @@
 ./assets/scss/partials/_reset.scss
 ./assets/scss/partials/_responsive.scss
 ./assets/scss/partials/_variables.scss
+./assets/webfonts
 ./assets/webfonts/fa-brands-400.eot
 ./assets/webfonts/fa-brands-400.svg
 ./assets/webfonts/fa-brands-400.ttf
@@ -31,6 +38,11 @@
 ./generate-structure.bat
 ./index.html
 ./package.json
+./pages
+./pages/media.css
+./pages/media.html
+./pages/media.js
+./partials
 ./partials/_footer.html
 ./partials/_navbar.html
 ./partials/_section_about.html

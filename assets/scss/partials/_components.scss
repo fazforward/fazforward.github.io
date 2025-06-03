@@ -100,6 +100,16 @@
     &:hover:after {
       width: 100%;
     }
+    
+    /* Active nav link styling - moved from media.css to main styles */
+    &.active {
+      color: #5d493b !important;
+      font-weight: 600;
+      
+      &:after {
+        width: 100% !important;
+      }
+    }
   }
 }
 

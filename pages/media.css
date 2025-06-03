@@ -1,21 +1,13 @@
 /* Media Page Specific Styles */
 
-/* Active nav link styling */
-.nav-link.active {
-    color: #5d493b !important;
-    font-weight: 600;
-}
-
-.nav-link.active:after {
-    width: 100% !important;
-}
-
-/* Media grid layout */
+/* Media grid layout - changed to vertical list */
 .media-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
     margin: 2rem 0;
+    max-width: 800px;
+    width: 100%;
 }
 
 .media-item {
@@ -24,7 +16,10 @@
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
+    text-align: left; /* Changed from center to left */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align content to the left */
 }
 
 .media-item:hover {
@@ -37,18 +32,23 @@
     font-size: 1.5em;
     font-weight: 900;
     margin-bottom: 1rem;
+    text-align: left; /* Ensure heading is left-aligned */
 }
 
 .media-item p {
     color: #666;
     line-height: 1.6;
     margin-bottom: 1.5rem;
+    text-align: left; /* Ensure paragraph is left-aligned */
+}
+
+.media-item .action-button {
+    align-self: flex-start; /* Align button to the left */
 }
 
 /* Responsive adjustments for media page */
 @media screen and (max-width: 980px) {
     .media-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1.5rem;
     }
     
@@ -59,7 +59,6 @@
 
 @media screen and (max-width: 736px) {
     .media-grid {
-        grid-template-columns: 1fr;
         gap: 1rem;
     }
     
